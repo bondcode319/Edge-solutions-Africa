@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Edge Solutions Africa — corporate website
 
-## Getting Started
+Corporate website and environmental technology platform site for **Edge Solutions Africa**, a company building environmental economic infrastructure: digital infrastructure connecting real-world environmental activity with trusted data, verification, rewards, project funding and commerce.
 
-First, run the development server:
+> Turning verified environmental activity into economic utility.
+
+## Stack
+
+| Concern | Choice |
+| --- | --- |
+| Framework | Next.js 16 (App Router, Turbopack) |
+| Language | TypeScript (strict) |
+| UI | React 19 |
+| Styling | Tailwind CSS v4, CSS-first design tokens in `src/app/globals.css` |
+| Icons | lucide-react, via an explicit registry (`src/components/ui/Icon.tsx`) |
+| Validation | Zod, one schema shared by client and server |
+| Tests | Vitest + Testing Library (jsdom) |
+| Content | Typed modules under `src/content/` |
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # optional — the site runs with no variables set
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Development server |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build |
+| `npm run lint` | ESLint (Next.js config) |
+| `npm run typecheck` | `tsc --noEmit` |
+| `npm test` | Vitest, single run |
+| `npm run test:watch` | Vitest, watch mode |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project structure
 
-## Learn More
+```
+src/
+  app/                  Routes (App Router)
+    api/contact/        Enquiry endpoint
+    [route]/page.tsx    One file per route; pages compose sections
+  components/
+    ui/                 Primitives: Button, Card, Section, StatusBadge, Callout, Icon, Reveal
+    layout/             SiteHeader, SiteFooter, Breadcrumbs, Logo
+    sections/           Page sections (hero, value gap, approach flow, CTA, …)
+    interactive/        Client components: architecture explorer, activity journey, insights browser, share links
+    forms/              ContactForm
+  config/site.ts        Company details, navigation, CTAs, footer, legal links
+  content/              Typed content: platform, solutions, industries, home, partners, insights, about, legal, status
+  lib/                  cn, seo, enquiry schema, rate limiting, analytics integration point
+  tests/                Vitest suites
+docs/                   Architecture, design system, testing report, deployment, outstanding items
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Editing content without touching components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Nearly all copy lives in `src/content/` and `src/config/site.ts`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Company details, navigation, CTAs, contact placeholders** → `src/config/site.ts`
+- **Platform layers, components, technical notes, blockchain position** → `src/content/platform.ts`
+- **Solution pages** → `src/content/solutions.ts` (adding an entry creates the route and its cards)
+- **Activity categories** → `src/content/industries.ts` (`hasDetailPage: true` gives it a route)
+- **Homepage narrative, principles, audiences** → `src/content/home.ts`
+- **Articles** → `src/content/insights.ts`
+- **Legal pages** → `src/content/legal.ts`
+- **Development status vocabulary** → `src/content/status.ts`
 
-## Deploy on Vercel
+Adding a solution or an industry requires no layout work: `generateStaticParams` picks up the new slug and the navigation and sitemap follow.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Editorial rules this site is built to follow
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+These are enforced by how the content layer is structured, and checked in `src/tests/components.test.tsx`:
+
+- No invented customers, partnerships, logos, testimonials, licences, funding, team details or environmental statistics.
+- Every capability carries a development status; nothing at concept stage is described as available.
+- Platform records, carbon credits and Green Points are defined separately and never conflated.
+- Green Points are never described as cash, transferable, or as an offset.
+- No token sale, token price or digital-asset investment content.
+- Demonstration data is labelled illustrative or simulated, at every value.
+- Unconfirmed contact details render as "To be confirmed" rather than a placeholder that reads as real.
+
+## Documentation
+
+- [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) — technical architecture and route inventory
+- [`docs/DESIGN-SYSTEM.md`](docs/DESIGN-SYSTEM.md) — tokens and components
+- [`docs/TESTING.md`](docs/TESTING.md) — what was tested and the actual results
+- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) — build, environment and deployment requirements
+- [`docs/INFORMATION-REQUIRED.md`](docs/INFORMATION-REQUIRED.md) — company information and assets still needed
+- [`docs/LEGAL-REVIEW.md`](docs/LEGAL-REVIEW.md) — claims and content requiring review before launch
+- [`docs/ANALYTICS.md`](docs/ANALYTICS.md) — the analytics integration point
+- [`docs/ROADMAP.md`](docs/ROADMAP.md) — known limitations and recommended next phase

@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   Edge Solutions Africa — design tokens
+   Single source of truth for colour, type, spacing, radii, shadows, motion.
+   Change values here rather than hardcoding them in components.
+   ========================================================================== */
+
+@theme {
+  /* Brand palette */
+  --color-navy: #0b1220;
+  --color-navy-800: #111b2e;
+  --color-navy-700: #1a2740;
+  --color-forest: #123b32;
+  --color-forest-600: #184f43;
+  --color-emerald: #15966b;
+  --color-emerald-600: #11805a;
+  --color-emerald-400: #34b487;
+  --color-emerald-50: #e8f5ef;
+  --color-cyan: #4cc9e8;
+  --color-cyan-600: #2ba9c9;
+  --color-cyan-50: #e6f7fc;
+  --color-offwhite: #f7f8f4;
+  --color-slate: #536171;
+  --color-slate-700: #3d4957;
+  --color-softgrey: #e5eae7;
+  --color-amber: #b4761a;
+  --color-amber-50: #fbf3e6;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --text-display: 3.75rem;
+  --text-display--line-height: 1.04;
+  --text-display--letter-spacing: -0.03em;
+  --text-display--font-weight: 600;
+
+  /* Radii */
+  --radius-card: 1rem;
+  --radius-panel: 1.5rem;
+  --radius-pill: 999px;
+
+  /* Elevation — soft, low-contrast, premium */
+  --shadow-card: 0 1px 2px rgb(11 18 32 / 0.04), 0 8px 24px -12px rgb(11 18 32 / 0.12);
+  --shadow-card-hover: 0 2px 4px rgb(11 18 32 / 0.05), 0 20px 40px -16px rgb(11 18 32 / 0.18);
+  --shadow-panel: 0 30px 80px -40px rgb(11 18 32 / 0.45);
+
+  /* Layout */
+  --container-content: 72rem;
+  --container-prose: 44rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 260ms;
+  --duration-slow: 600ms;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-offwhite);
+    color: var(--color-navy);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Visible, consistent focus for every interactive element. */
+  :focus-visible {
+    outline: 2px solid var(--color-emerald);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Dark surfaces get a light focus ring so it stays visible. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-cyan);
+  }
+
+  ::selection {
+    background-color: var(--color-emerald);
+    color: #fff;
+  }
+
+  /* Anchored sections clear the sticky header. */
+  :target {
+    scroll-margin-top: 7rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .container-content {
+    width: 100%;
+    max-width: var(--container-content);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-content {
+      padding-inline: 2rem;
+    }
+  }
+
+  .text-balance-heading {
+    text-wrap: balance;
+  }
+
+  /* Scroll reveal — additive only. Content is fully readable without it,
+     and the observer never runs when the user prefers reduced motion. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--duration-slow) var(--ease-out-soft),
+      transform var(--duration-slow) var(--ease-out-soft);
+  }
+
+  .reveal[data-visible="true"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -1,0 +1,1409 @@
+MASTER WEBSITE DEVELOPMENT PROMPT
+Edge Solutions Africa — Corporate Website & Environmental Technology Platform
+1. YOUR ROLE
+
+Act as a senior multidisciplinary digital product team consisting of:
+
+A senior full-stack software architect.
+A senior frontend engineer.
+A senior backend engineer.
+A principal UI/UX designer.
+A brand and digital communications strategist.
+A ClimateTech and environmental technology product specialist.
+An accessibility and responsive-design specialist.
+A technical SEO specialist.
+A senior QA engineer.
+
+Your task is to design, architect, develop, test, and document a complete, modern, production-oriented corporate website for Edge Solutions Africa.
+
+Do not produce only a static landing page, a wireframe, or a collection of disconnected UI components.
+
+Build a cohesive digital experience that communicates the company's vision, explains its environmental economic infrastructure platform, presents its capabilities, and provides clear ways for organisations to engage with the company.
+
+The website must be visually distinctive, technically maintainable, responsive, accessible, and ready for future expansion as the business evolves.
+
+Think through the architecture, user journeys, content hierarchy, component system, implementation risks, and acceptance criteria before implementation. Document decisions and assumptions rather than inventing company facts.
+
+2. COMPANY CONTEXT — SOURCE OF TRUTH
+Company name
+
+Edge Solutions Africa
+
+Use this name consistently in the website's branding, metadata, page titles, footer, contact forms, and company introduction.
+
+The underlying environmental infrastructure initiative is referred to as Edge Tech in the company strategy.
+
+Use the following brand relationship:
+
+Edge Solutions Africa — the company brand presented to the public.
+
+Edge Tech — the environmental economic infrastructure platform and initiative described in the project strategy.
+
+Do not create an unrelated software agency identity or introduce a different environmental token company.
+
+Core business identity
+
+Edge Solutions Africa is building environmental economic infrastructure that transforms verified environmental activity into economic utility.
+
+The business is not simply a carbon-credit marketplace, cryptocurrency project, or conventional software development agency.
+
+Its central purpose is to connect measurable real-world environmental activity with the infrastructure required to:
+
+Capture environmental activity data.
+Measure, report, and verify environmental performance.
+Maintain trusted environmental activity and asset records.
+Connect verified activity to environmental value.
+Distribute appropriately funded rewards.
+Support environmental project funding.
+Connect users, operators, merchants, sponsors, and institutions through digital commerce and payment infrastructure.
+
+The company begins with e-mobility and intends to expand into other measurable environmental activities.
+
+Official brand positioning
+
+Use this as the principal company tagline:
+
+Turning verified environmental activity into economic utility.
+
+Supporting brand phrase:
+
+VERIFY. VALUE. REWARD. FUND. SCALE.
+
+Supporting positioning statement:
+
+"We build digital infrastructure connecting real-world environmental activity with trusted data, verification, rewards, project funding, and commerce."
+
+Company vision
+
+Build infrastructure that makes measurable environmental activity easier to verify, value, finance, and use — beginning in Africa and designed for broader global relevance.
+
+Company mission
+
+Build trusted digital infrastructure that measures and verifies real-world environmental activity and connects it to rewards, finance, and commerce.
+
+Important brand principle
+
+Lead with environmental infrastructure, evidence, practical utility, and measurable activity.
+
+Do not lead with cryptocurrency speculation, token prices, investment returns, or exaggerated environmental claims.
+
+3. BUSINESS AND PRODUCT UNDERSTANDING
+
+The website must accurately communicate the following five-layer architecture.
+
+Layer 1 — Real-world activity
+
+Environmental activities that can generate measurable data:
+
+Electric buses and electric mobility.
+Electric motorcycles.
+Solar energy.
+Clean cooking.
+Waste and recycling.
+Other measurable environmental activities supported by suitable methodologies.
+Layer 2 — Data and verification
+
+The infrastructure captures and processes relevant data, including:
+
+Vehicle telemetry.
+Charging and energy consumption data.
+Activity records.
+Environmental evidence.
+Verification workflows.
+Audit trails.
+Methodology-based calculations.
+Layer 3 — Environmental value
+
+The platform maintains structured records of environmental activity, assets, and claims.
+
+It is designed to support environmental claims management, provenance, and preparation of documentation for relevant verification and registry processes.
+
+Clearly distinguish platform records from independently verified carbon credits.
+
+Layer 4 — Economic utility
+
+The platform's planned economic infrastructure includes:
+
+Green Points and funded rewards.
+Environmental project funding.
+Payments and settlement integrations.
+Merchant participation.
+Environmental data products.
+Future digital-asset infrastructure subject to the required legal and regulatory approvals.
+Layer 5 — Marketplace and environmental economy
+
+The broader vision connects:
+
+Environmental project operators.
+Electric mobility operators.
+Passengers and users.
+Merchants.
+Corporate sponsors.
+Environmental project funders.
+Accredited verifiers.
+Relevant institutions and ecosystem partners.
+
+Show how the layers work together in an understandable way.
+
+The website must make it clear that blockchain is a supporting technology for appropriate records and future economic infrastructure. Environmental measurement and verification must not depend on the availability of a blockchain network.
+
+4. WEBSITE OBJECTIVES
+
+The website must achieve the following business objectives.
+
+Objective A — Establish company credibility
+
+Present Edge Solutions Africa as a serious environmental technology and digital infrastructure business with a coherent mission, defined product architecture, and practical approach.
+
+Objective B — Explain a complex concept simply
+
+A visitor with no background in MRV, carbon markets, or blockchain should understand:
+
+The environmental value gap.
+Why trustworthy data matters.
+What the company is building.
+How the platform is intended to work.
+Who may benefit from the infrastructure.
+Objective C — Generate qualified enquiries
+
+Encourage relevant organisations to contact the company about:
+
+E-mobility data integration.
+Environmental MRV.
+Pilot opportunities.
+Environmental project participation.
+Corporate sponsorship.
+Project funding.
+Technology and ecosystem partnerships.
+Institutional collaboration.
+Objective D — Support future growth
+
+Build an architecture that can later accommodate:
+
+Public platform demonstrations.
+Operator dashboards.
+Product documentation.
+Partner portals.
+Environmental activity categories.
+Case studies.
+Research and insights.
+Regional expansion.
+Additional product modules.
+
+Do not implement these future systems as if they are already operational. Clearly separate implemented functionality from planned functionality.
+
+5. DESIGN DIRECTION
+
+Create a premium, contemporary, high-trust ClimateTech website.
+
+The experience should combine the visual confidence of a leading enterprise technology company with the clarity of a sustainability and environmental infrastructure brand.
+
+Avoid the appearance of:
+
+A generic cryptocurrency landing page.
+A basic environmental charity website.
+A generic software development agency template.
+A crowded startup landing page with excessive gradients and animations.
+A speculative investment or token-sale website.
+Visual characteristics
+
+Use:
+
+Spacious layouts.
+Strong typography.
+Restrained but memorable colour.
+Carefully designed cards.
+High-quality environmental and mobility imagery.
+Clear diagrams and visual storytelling.
+Subtle motion and transitions.
+Large, confident headlines.
+Strong information hierarchy.
+Purposeful white space.
+Clean responsive navigation.
+Elegant data visualisations where appropriate.
+
+The design should feel technologically advanced but grounded in real-world infrastructure.
+
+Suggested colour system
+
+Use the following proposed palette as the initial design direction. Make it configurable through design tokens.
+
+Token	Colour	Purpose
+Midnight Navy	#0B1220	Primary dark surfaces, footer, hero backgrounds
+Deep Forest	#123B32	Environmental identity and dark green surfaces
+Emerald	#15966B	Primary brand accent and environmental activity
+Electric Cyan	#4CC9E8	Data, telemetry, and digital infrastructure accents
+Warm Off-White	#F7F8F4	Main light backgrounds
+Pure White	#FFFFFF	Cards and content surfaces
+Slate	#536171	Secondary text
+Soft Grey	#E5EAE7	Borders, dividers, and subtle backgrounds
+
+Use gradients sparingly.
+
+The site should work in both light and dark sections without compromising readability.
+
+Typography
+
+Use a modern, professional sans-serif typeface.
+
+Suggested options:
+
+Inter.
+Manrope.
+Plus Jakarta Sans.
+
+Use one primary typeface with a disciplined scale for headings, body text, labels, buttons, and captions.
+
+Use large editorial headlines for major section introductions.
+
+Logo
+
+Use the supplied official logo if available.
+
+If no official logo is available, create a temporary, clearly replaceable text-based identity treatment using "Edge Solutions Africa".
+
+Do not fabricate an official approved logo.
+
+Keep the logo asset configurable so a final brand asset can be inserted without changing the application architecture.
+
+6. INFORMATION ARCHITECTURE
+
+Create the following primary website routes.
+
+/ — Home.
+/about — About Edge Solutions Africa.
+/platform — Platform overview.
+/solutions — Solutions overview.
+/solutions/environmental-mrv — Environmental MRV.
+/solutions/e-mobility — E-mobility infrastructure.
+/solutions/environmental-data — Environmental data and analytics.
+/solutions/green-rewards — Green rewards infrastructure.
+/solutions/project-funding — Environmental project funding.
+/solutions/payments-commerce — Payments and commerce infrastructure.
+/industries — Industries and activity categories.
+/industries/e-mobility — E-mobility operators.
+/industries/renewable-energy — Renewable energy.
+/industries/waste-recycling — Waste and recycling.
+/industries/clean-cooking — Clean cooking.
+/partners — Partner ecosystem.
+/insights — Insights and articles.
+/contact — Contact and enquiries.
+/privacy — Privacy notice.
+/terms — Website terms.
+/cookies — Cookie information, if applicable.
+
+Implement a consistent navigation system with sensible dropdowns or mega menus.
+
+Do not expose all routes as separate top-level navigation items. Group related pages to keep the navigation simple.
+
+Recommended main navigation:
+
+Platform
+Solutions
+Industries
+About
+Insights
+Contact
+
+Primary navigation CTA:
+
+Discuss a Partnership
+
+Secondary CTA:
+
+Explore the Platform
+
+7. HOME PAGE — DETAILED REQUIREMENTS
+
+The homepage must tell a coherent story from the first screen to the final CTA.
+
+Section 1 — Hero
+
+Create a visually striking hero with a clear value proposition.
+
+Recommended headline:
+
+Turning Verified Environmental Activity Into Economic Utility.
+
+Supporting copy:
+
+"Edge Solutions Africa is building digital infrastructure that connects real-world environmental activity with trusted data, verification, rewards, project funding, and commerce."
+
+Primary CTA:
+
+Explore the Platform
+
+Secondary CTA:
+
+Discuss a Partnership
+
+Include a premium hero visual showing a real-world environmental activity connected to a digital infrastructure network.
+
+Possible visual elements:
+
+An electric bus.
+Charging infrastructure.
+A digital telemetry layer.
+Environmental verification indicators.
+A structured environmental record.
+Rewards and project-funding connections.
+
+Use a visual composition rather than a cluttered collection of floating icons.
+
+The visual should communicate that real-world activity produces evidence, evidence supports verification, and verified activity can connect to economic utility.
+
+Do not display fabricated carbon savings, customer counts, partner logos, financial results, or platform usage statistics.
+
+Section 2 — The Environmental Value Gap
+
+Headline:
+
+Environmental activity creates value. But value needs infrastructure.
+
+Explain the problem:
+
+Environmental activities can generate meaningful environmental benefits, but smaller operators and projects may face barriers when trying to measure, verify, document, finance, and connect those activities to economic opportunities.
+
+Use four problem cards:
+
+Fragmented environmental data.
+Complex measurement and verification processes.
+Limited access to environmental finance.
+Disconnected rewards and commercial infrastructure.
+
+Explain the opportunity without claiming that Edge Solutions Africa has already solved every challenge.
+
+CTA:
+
+Discover Our Approach
+
+Section 3 — Our approach
+
+Headline:
+
+From real-world activity to economic utility.
+
+Create a polished five-step visual flow:
+
+REAL-WORLD ACTIVITY.
+DATA AND EVIDENCE.
+MEASUREMENT AND VERIFICATION.
+ENVIRONMENTAL VALUE.
+REWARDS, FUNDING AND COMMERCE.
+
+Each step should have:
+
+An icon or illustration.
+A short title.
+A concise explanation.
+A clear visual connection to the next step.
+
+Allow the diagram to become vertical on mobile.
+
+Section 4 — Platform overview
+
+Headline:
+
+One connected infrastructure. Multiple environmental use cases.
+
+Introduce the platform's core capabilities:
+
+Environmental MRV.
+Environmental activity and asset records.
+Green rewards.
+Project funding.
+Payments and commerce.
+Environmental data and analytics.
+
+Use a responsive card grid.
+
+Each card must have a consistent structure:
+
+Icon or visual.
+Capability name.
+One-sentence description.
+Learn more link.
+
+Do not imply that all modules are already live. Use accurate labels such as "Platform capability", "In development", or "Planned" where appropriate.
+
+Section 5 — Starting with e-mobility
+
+Headline:
+
+Our starting point: measurable environmental activity in e-mobility.
+
+Explain why e-mobility is the initial focus:
+
+Electric mobility produces operational data that can support structured environmental monitoring, reporting, and verification when collected and assessed under an appropriate methodology.
+
+Illustrate a potential data journey:
+
+Vehicle activity → Telemetry and charging data → Methodology-based calculations → Verification workflow → Environmental records and reports.
+
+Explain that the platform is designed to support operators and the broader ecosystem.
+
+Do not state that a fleet has formally partnered with the company unless documented approval and a confirmed agreement are available.
+
+CTA:
+
+Explore E-Mobility Solutions
+
+Section 6 — Designed to expand
+
+Headline:
+
+One infrastructure. A growing range of environmental activities.
+
+Show the intended activity categories:
+
+Electric buses.
+Electric motorcycles.
+Solar energy.
+Clean cooking.
+Waste and recycling.
+Other suitable measurable environmental activities.
+
+Use a visually appealing grid or horizontal card layout.
+
+Mark categories as current focus, planned expansion, or exploratory where appropriate.
+
+Section 7 — How value flows
+
+Headline:
+
+Connecting environmental evidence to economic participation.
+
+Create a clean diagram explaining the intended relationships between:
+
+Environmental activity.
+Verification.
+Funded Green Points.
+Corporate sponsorship.
+Environmental project funding.
+Merchant participation.
+Payments and settlement.
+
+Clearly distinguish environmental records, rewards, and carbon credits.
+
+Do not describe one Green Point as a carbon credit or as a fixed quantity of carbon dioxide equivalent.
+
+Do not imply that points have cash value, unrestricted transferability, or guaranteed redemption unless those terms have been approved and implemented.
+
+Section 8 — Built around trust
+
+Headline:
+
+Trust is not a feature. It is the foundation.
+
+Show the company's guiding principles:
+
+Evidence before issuance.
+Verification before environmental claims.
+Clear provenance and auditability.
+Protection of personal and operational data.
+Responsible reward funding.
+Appropriate legal and regulatory pathways.
+Interoperability with relevant environmental standards and registries.
+
+Use a clean, premium design with short explanations.
+
+Section 9 — Who we work with
+
+Headline:
+
+Infrastructure for the people building a more sustainable economy.
+
+Create audience cards for:
+
+E-mobility operators.
+Environmental project developers.
+Renewable energy businesses.
+Corporate sponsors.
+Merchants.
+Funders and institutions.
+Verification and technical partners.
+
+Each card should explain the potential engagement pathway.
+
+Do not display unconfirmed partner logos or claim formal relationships.
+
+Section 10 — Partnership CTA
+
+Headline:
+
+Let's build the infrastructure for measurable environmental value.
+
+Supporting copy:
+
+"Are you operating an electric mobility fleet, developing an environmental project, exploring green finance, or looking for ways to support measurable environmental activity? Let's start a conversation."
+
+Buttons:
+
+Discuss a Partnership
+
+Contact Our Team
+
+Section 11 — Footer
+
+Include:
+
+Company name and logo.
+Short company description.
+Main navigation.
+Platform and solutions links.
+Industries.
+Insights.
+Contact information placeholders.
+Privacy notice.
+Terms.
+Cookie information where applicable.
+LinkedIn link placeholder.
+Copyright notice.
+
+Do not invent physical addresses, email addresses, telephone numbers, registration numbers, or social media URLs.
+
+Use editable configuration values for company contact details.
+
+8. ABOUT PAGE
+
+Build a complete company story page.
+
+Sections:
+
+Company introduction.
+The Environmental Value Gap.
+Vision and mission.
+What we are building.
+Why we begin with e-mobility.
+Our five-layer infrastructure model.
+Our principles.
+Long-term direction.
+Partnership CTA.
+
+Use clear, credible language.
+
+Do not invent founder biographies, awards, funding announcements, incorporation dates, team sizes, or company history.
+
+Where information is missing, use configurable placeholders or omit the section.
+
+9. PLATFORM PAGE
+
+Create an in-depth explanation of the platform architecture.
+
+Platform architecture visual
+
+Show:
+
+REAL-WORLD ACTIVITY
+↓
+DATA AND VERIFICATION
+↓
+ENVIRONMENTAL VALUE
+↓
+ECONOMIC UTILITY
+↓
+MARKETPLACE AND ENVIRONMENTAL ECONOMY
+
+Each layer must have an expandable or linked explanation.
+
+Explain the infrastructure components
+Activity data
+
+Explain how operational and environmental data can be captured from suitable sources.
+
+MRV engine
+
+Explain the intended role of methodology-based calculations, evidence management, reporting, and verification workflows.
+
+Environmental claims registry
+
+Explain how records can connect an asset to an activity period and maintain traceability.
+
+Rewards infrastructure
+
+Explain the concept of funded Green Points and the relationship between reward issuance and available funding.
+
+Funding infrastructure
+
+Explain donations, sponsorships, and pre-purchases as possible funding pathways.
+
+Payments and commerce
+
+Explain the intended role of payments and merchant settlement integrations using appropriate licensed payment providers.
+
+Blockchain and future digital assets
+
+Explain that blockchain may support tamper-evident records and future regulated functionality, but is not required for the environmental measurement system to operate.
+
+Make the platform understandable to non-technical users while including an optional technical architecture section for institutional and technology partners.
+
+10. SOLUTIONS PAGES
+
+Develop consistent, detailed pages for each solution.
+
+A. Environmental MRV
+
+Explain:
+
+Measurement.
+Reporting.
+Verification.
+Data ingestion.
+Evidence management.
+Methodology-based calculations.
+Activity records.
+Audit trails.
+Reporting outputs.
+Integration opportunities.
+
+CTA: Discuss an MRV Integration.
+
+B. E-Mobility Infrastructure
+
+Explain:
+
+Fleet data integration.
+Telemetry and charging data.
+Operational activity records.
+Environmental reporting workflows.
+Operator-facing digital infrastructure.
+Potential rewards and funding connections.
+
+CTA: Discuss E-Mobility Integration.
+
+C. Environmental Data and Analytics
+
+Explain:
+
+Environmental activity data.
+Structured records.
+Data quality.
+Performance reporting.
+Aggregated insights.
+Institutional reporting use cases.
+
+CTA: Discuss Environmental Data.
+
+D. Green Rewards
+
+Explain the proposed Green Points model.
+
+Include:
+
+Activity-based reward concepts.
+Verification requirements.
+Funded reward pools.
+Merchant participation.
+Redemption workflows.
+Reward accounting and auditability.
+
+Clearly communicate that reward terms and availability depend on the actual product implementation and approved operating model.
+
+CTA: Explore Rewards Partnerships.
+
+E. Environmental Project Funding
+
+Explain possible mechanisms:
+
+Donations.
+Corporate sponsorship.
+Pre-purchases.
+Project milestones.
+Project documentation.
+Funding transparency.
+
+Distinguish donations and pre-purchases from investment products.
+
+Do not promise returns or describe the platform as an investment marketplace unless the relevant regulated product is approved.
+
+CTA: Discuss Project Funding.
+
+F. Payments and Commerce
+
+Explain the planned connections between environmental participation and commercial activity.
+
+Include:
+
+Payment-provider integrations.
+Merchant participation.
+Transaction records.
+Settlement workflows.
+Payment reconciliation.
+Reward redemption where supported.
+
+Do not imply that Edge Solutions Africa currently operates a licensed payment service or directly holds customer funds.
+
+CTA: Discuss Commerce Integration.
+
+11. INDUSTRIES PAGE
+
+Build an industry overview with reusable industry cards and detailed pages.
+
+E-mobility
+
+Primary initial focus.
+
+Cover electric buses, electric motorcycles, fleet operators, telemetry, charging data, and environmental reporting.
+
+Renewable energy
+
+Cover solar and other suitable measurable renewable-energy activities.
+
+Waste and recycling
+
+Cover measurable collection, recovery, recycling, and diversion activities where appropriate methodologies and evidence are available.
+
+Clean cooking
+
+Cover suitable activities and data needed to support environmental monitoring and verification.
+
+Future activity categories
+
+Allow additional categories to be configured without redesigning the website.
+
+For each category, communicate:
+
+The real-world activity.
+The potential data sources.
+The verification considerations.
+The intended platform connection.
+The current development status.
+
+Do not make unsupported claims about the environmental impact of specific projects.
+
+12. PARTNERS PAGE
+
+Create a professional ecosystem and partnerships page.
+
+Potential engagement categories:
+
+E-mobility operators.
+Environmental project developers.
+Corporate sponsors.
+Merchants.
+Accredited verifiers.
+Technology providers.
+Research organisations.
+Financial institutions.
+Public-sector and institutional stakeholders.
+
+Explain the potential value of collaboration for each category.
+
+Include a partnership enquiry form.
+
+Do not display partner logos, testimonials, certifications, or claims of signed agreements without verified source material.
+
+Use neutral wording such as "We welcome conversations with organisations working in..." where a relationship has not yet been established.
+
+13. INSIGHTS AND ARTICLES
+
+Build an extensible insights section.
+
+Features:
+
+Article listing page.
+Article detail page.
+Category filters.
+Search.
+Featured article layout.
+Related articles.
+Author and publication-date fields.
+Social sharing links.
+SEO metadata.
+Responsive article typography.
+
+Suggested initial editorial themes:
+
+Understanding environmental MRV.
+Why environmental data quality matters.
+The role of e-mobility in environmental infrastructure.
+The Environmental Value Gap.
+Environmental finance and small project participation.
+Green rewards and responsible funding.
+Digital infrastructure for environmental reporting.
+
+Do not fabricate expert quotations, external research findings, article publication dates, or author credentials.
+
+If no article content exists, build the content structure and use clearly labelled draft content rather than pretending articles have been published.
+
+14. CONTACT AND LEAD GENERATION
+
+Create a polished contact page.
+
+Include a partnership enquiry form with:
+
+Full name.
+Work email.
+Organisation.
+Job title, optional.
+Country.
+Organisation type.
+Area of interest.
+Message.
+Consent checkbox where required.
+
+Area of interest options:
+
+Environmental MRV.
+E-mobility.
+Environmental data.
+Green rewards.
+Project funding.
+Payments and commerce.
+Technology integration.
+Corporate sponsorship.
+Research or institutional collaboration.
+Other.
+
+Form requirements:
+
+Client-side and server-side validation.
+Accessible labels.
+Clear validation messages.
+Loading state.
+Success state.
+Failure state.
+Spam protection.
+Rate limiting.
+Secure server-side handling.
+Privacy notice link.
+No sensitive information requested unnecessarily.
+
+Do not display a success message until the enquiry has actually been accepted by the configured backend or delivery service.
+
+If no backend delivery service is configured, show a development-mode notice and document the required setup.
+
+Do not invent an email address or pretend enquiries are being delivered.
+
+15. INTERACTIVE EXPERIENCES
+
+Add meaningful interactivity where it improves understanding.
+
+A. Interactive platform architecture
+
+Allow users to select a platform layer and view:
+
+Its purpose.
+Example data.
+Its relationship to the next layer.
+Relevant solution links.
+B. Environmental activity journey
+
+Create an interactive demonstration using a clearly labelled illustrative example.
+
+Example:
+
+"Illustrative electric bus activity record"
+
+Show:
+
+Activity recorded.
+Data collected.
+Evidence reviewed.
+Verification status.
+Environmental record prepared.
+Potential reward or reporting connection.
+
+Every number and status in the demo must be labelled illustrative or simulated.
+
+Do not imply the demonstration is connected to a real vehicle, real customer, or live environmental registry.
+
+C. Platform readiness indicators
+
+Where helpful, show clear status labels:
+
+Concept.
+In development.
+Pilot preparation.
+Pilot.
+Available.
+
+Only assign a status when supported by company-approved information.
+
+If the current status is unknown, display "Status to be confirmed" in internal configuration or omit the status publicly.
+
+D. Subtle animations
+
+Use restrained transitions for:
+
+Navigation.
+Cards.
+Architecture diagrams.
+Scroll reveals.
+Buttons.
+Interactive elements.
+
+Respect reduced-motion preferences.
+
+Do not make the website dependent on animation to communicate critical information.
+
+16. TECHNICAL ARCHITECTURE AND DEVELOPMENT
+
+Before implementation:
+
+Inspect the existing repository.
+Identify the framework, dependencies, directory structure, and current application state.
+Identify any existing design system or reusable components.
+Preserve working code and avoid unnecessary rewrites.
+Write a concise implementation plan.
+Document assumptions and unresolved business decisions.
+Implement in logical phases.
+Framework selection
+
+If an existing framework is present, follow it unless there is a documented reason to change.
+
+If starting from a greenfield project, select a modern framework suitable for:
+
+Server rendering or static generation.
+SEO.
+Responsive component-based design.
+Accessible interactions.
+Maintainable routing.
+Secure form processing.
+Future backend integration.
+
+A suitable default is:
+
+Next.js with TypeScript.
+React.
+Tailwind CSS.
+A reusable accessible component system.
+A suitable icon library.
+A structured content layer.
+
+Use the stack already established in the repository if it meets the requirements.
+
+Component architecture
+
+Create reusable components such as:
+
+SiteHeader.
+DesktopNavigation.
+MobileNavigation.
+SiteFooter.
+HeroSection.
+SectionHeading.
+PrimaryButton.
+SecondaryButton.
+SolutionCard.
+IndustryCard.
+PartnerCard.
+ArchitectureDiagram.
+ActivityJourney.
+StatusBadge.
+ContactForm.
+ArticleCard.
+Breadcrumbs.
+SEO metadata utilities.
+
+Keep components modular and avoid excessively large page files.
+
+Design tokens
+
+Centralise:
+
+Colours.
+Typography.
+Spacing.
+Breakpoints.
+Border radii.
+Shadows.
+Button variants.
+Container widths.
+Animation timing.
+
+Avoid scattered hardcoded values.
+
+Content architecture
+
+Store repeatable content in structured data or a suitable CMS.
+
+The following should be editable without rewriting page components:
+
+Company description.
+Tagline.
+Vision and mission.
+Solutions.
+Industry descriptions.
+Contact details.
+Social links.
+Article content.
+Platform status labels.
+CTA text.
+
+Use a CMS only if it adds meaningful value. A structured local content layer is acceptable for the first release.
+
+Backend
+
+If a backend is required, implement secure, maintainable server-side endpoints.
+
+Do not expose API keys, service credentials, email credentials, or private environment variables in client-side bundles.
+
+Document all required environment variables.
+
+Do not connect to production payment, carbon registry, blockchain, or partner systems without credentials, permissions, and an approved integration specification.
+
+17. SECURITY, PRIVACY, AND REGULATORY COMMUNICATION
+
+The company strategy identifies regulatory, payment, data-protection, double-counting, and reward-funding concerns. The website must communicate the business responsibly.
+
+Implement the following principles:
+
+Environmental claims
+Distinguish measured activity from verified environmental claims.
+Distinguish platform records from independently issued carbon credits.
+Avoid claiming that a user has offset emissions merely by earning points.
+Avoid unsupported emissions-reduction statistics.
+Avoid presenting illustrative calculations as verified results.
+Rewards
+Explain the Green Points concept accurately.
+Do not claim points are transferable, cashable, or universally redeemable unless approved and implemented.
+Do not promise a fixed point value or guaranteed financial benefit without approved terms.
+Do not imply rewards are issued without appropriate funding.
+Payments
+Do not describe the company as a bank, payment institution, or licensed payment provider without verified authorisation.
+Explain planned payment integrations as integrations with appropriate providers.
+Do not imply that the company holds customer funds if it does not.
+Tokens and blockchain
+Do not launch a token sale page.
+Do not add speculative token pricing.
+Do not market the platform as a cryptocurrency investment.
+Do not promise token appreciation, returns, or liquidity.
+Present transferable-token functionality as a future possibility subject to the required legal and regulatory approvals.
+Keep environmental measurement and verification conceptually independent of blockchain availability.
+Data protection
+Minimise personal data collection.
+Avoid publishing raw GPS trails, passenger information, or personally identifiable operational data.
+Provide appropriate privacy information.
+Do not use real customer or vehicle information in demonstrations without permission.
+Legal content
+
+Build editable legal-information pages and configurable notices.
+
+Do not invent legal opinions, licences, regulatory approvals, certifications, or compliance claims.
+
+Mark content requiring legal review in the project documentation.
+
+18. RESPONSIVE DESIGN
+
+The website must provide a polished experience across:
+
+Large desktop displays.
+Standard desktop and laptop screens.
+Tablets.
+Mobile phones.
+Narrow mobile screens.
+
+Requirements:
+
+No horizontal overflow.
+No clipped text.
+Navigation works on touch devices.
+Buttons have comfortable touch targets.
+Cards reflow naturally.
+Architecture diagrams remain understandable on mobile.
+Tables adapt appropriately.
+Forms remain usable on small screens.
+Images use appropriate responsive sizing.
+Text maintains readable line lengths.
+Sticky elements do not obscure content.
+
+Use mobile-first principles where appropriate.
+
+19. ACCESSIBILITY
+
+Target WCAG 2.2 AA where reasonably achievable.
+
+Include:
+
+Semantic HTML.
+Correct heading hierarchy.
+Keyboard-accessible navigation.
+Visible focus states.
+Accessible form labels.
+Meaningful image alt text.
+Sufficient colour contrast.
+Reduced-motion support.
+Accessible menus and dialogs.
+Clear validation and error messages.
+Accessible interactive diagrams.
+Screen-reader-friendly status indicators.
+
+Do not communicate status through colour alone.
+
+20. SEO AND PERFORMANCE
+
+Implement a comprehensive technical SEO foundation.
+
+Include:
+
+Unique page titles.
+Meta descriptions.
+Canonical URL support.
+Open Graph metadata.
+Social sharing metadata.
+XML sitemap.
+Robots configuration.
+Appropriate structured data where justified.
+Semantic page structure.
+Internal linking.
+Descriptive image alt text.
+Human-readable URLs.
+Appropriate heading hierarchy.
+
+Performance requirements:
+
+Optimise images.
+Avoid unnecessary JavaScript.
+Use lazy loading for below-the-fold media.
+Avoid layout shifts.
+Use efficient font loading.
+Avoid unnecessary third-party scripts.
+Use server rendering or static generation where appropriate.
+Keep animations lightweight.
+
+Target strong Core Web Vitals and Lighthouse results, while prioritising truthful content, accessibility, and functional correctness over artificially inflated scores.
+
+21. CONTENT AND COPYWRITING RULES
+
+Write professional, compelling, concise copy.
+
+The tone must be:
+
+Intelligent.
+Credible.
+Forward-looking.
+Practical.
+Technically informed.
+African-rooted and globally relevant.
+Confident without exaggeration.
+
+Use the following brand vocabulary consistently:
+
+Environmental economic infrastructure.
+Verified environmental activity.
+Measurement, Reporting and Verification (MRV).
+Environmental data.
+Environmental value.
+Funded rewards.
+Green Points.
+Project funding.
+E-mobility.
+Environmental finance.
+Digital infrastructure.
+
+Avoid:
+
+Empty corporate buzzwords.
+Unsubstantiated claims of market leadership.
+Guaranteed environmental or financial outcomes.
+Claims of existing partnerships without evidence.
+Claims of regulatory approval without evidence.
+Token speculation.
+Unsupported statistics.
+Confusing environmental activity records with carbon credits.
+
+Use plain language first, with technical detail available where it adds value.
+
+22. ANALYTICS AND CONVERSION
+
+Prepare the website for privacy-conscious analytics.
+
+Track useful events where a suitable analytics provider is configured:
+
+Primary CTA clicks.
+Contact form submissions.
+Solution page engagement.
+Partnership enquiry selections.
+Article engagement.
+Platform architecture interactions.
+
+Do not transmit unnecessary personal data to analytics services.
+
+Respect applicable consent requirements.
+
+If analytics credentials are unavailable, create a documented integration point rather than fabricating a live analytics connection.
+
+23. TESTING AND QUALITY ASSURANCE
+
+Act as a senior QA engineer.
+
+Test the website systematically.
+
+Functional testing
+All navigation links work.
+All routes load correctly.
+All CTA buttons perform the expected action.
+Dropdown menus work.
+Mobile navigation works.
+Interactive diagrams work.
+Forms validate correctly.
+Error and success states are accurate.
+Unknown routes display a proper not-found page.
+External links behave appropriately.
+Responsive testing
+
+Test representative desktop, tablet, and mobile viewports.
+
+Check:
+
+Layout consistency.
+Navigation.
+Typography.
+Images.
+Interactive components.
+Forms.
+Overflow.
+Touch usability.
+Accessibility testing
+
+Check keyboard navigation, focus management, semantics, form labelling, contrast, and reduced-motion behaviour.
+
+Technical testing
+
+Run the relevant project checks, including:
+
+TypeScript checks.
+Linting.
+Unit tests.
+Component tests where appropriate.
+Integration tests.
+End-to-end tests.
+Production build.
+
+Fix errors introduced by the implementation.
+
+Do not claim that tests passed unless they were actually run and the results support that statement.
+
+24. IMPLEMENTATION PHASES
+
+Implement the website in the following phases.
+
+Phase 0 — Discovery and planning
+Inspect the repository.
+Understand the existing stack.
+Confirm available assets.
+Identify missing company information.
+Produce the page architecture.
+Produce the design direction.
+Document assumptions and risks.
+
+Deliverable: implementation plan and architecture notes.
+
+Phase 1 — Design system and global shell
+Establish design tokens.
+Implement typography.
+Implement global layout.
+Build header and navigation.
+Build footer.
+Implement responsive foundations.
+Establish reusable buttons and cards.
+
+Deliverable: complete global design system and site shell.
+
+Phase 2 — Core company pages
+
+Build:
+
+Homepage.
+About.
+Platform overview.
+Solutions overview.
+Industries overview.
+Contact.
+
+Deliverable: complete primary user journey.
+
+Phase 3 — Detailed solutions and industry pages
+
+Build all specified solution and industry detail pages.
+
+Ensure content and layout are consistent while allowing each page to address its specific audience.
+
+Deliverable: complete public-facing service and industry architecture.
+
+Phase 4 — Insights and interactive experiences
+
+Implement:
+
+Insights listing.
+Article template.
+Platform architecture interaction.
+Illustrative environmental activity journey.
+Relevant motion and micro-interactions.
+
+Deliverable: educational and engagement experiences.
+
+Phase 5 — Forms, metadata, and security
+
+Implement:
+
+Contact form processing.
+Validation.
+Spam protection.
+SEO metadata.
+Privacy information.
+Secure configuration.
+Analytics integration points.
+
+Deliverable: functional business-enquiry workflow and technical foundations.
+
+Phase 6 — QA and production preparation
+Run tests.
+Fix issues.
+Check responsiveness.
+Review accessibility.
+Review copy for unsupported claims.
+Check links and metadata.
+Run the production build.
+Document deployment requirements.
+
+Deliverable: tested, documented website ready for deployment once production configuration and company details are supplied.
+
+25. ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+The website consistently uses the Edge Solutions Africa brand.
+The homepage clearly communicates the environmental economic infrastructure concept.
+Visitors can understand the five-layer platform architecture.
+E-mobility is presented as the initial focus without excluding future activities.
+The distinction between verified activity, carbon credits, Green Points, and future tokens is clear.
+The website does not fabricate customers, partnerships, financial results, licences, or environmental impact statistics.
+All specified core routes are implemented or explicitly documented as deferred.
+Navigation, CTAs, and interactive components work.
+The contact form behaves honestly and securely.
+The site is responsive across desktop, tablet, and mobile.
+Accessibility has been checked.
+SEO foundations are implemented.
+The project builds successfully in the intended environment.
+Relevant automated tests have been run and their results documented.
+Missing production credentials and company information are clearly identified.
+The codebase is modular and maintainable.
+Future product modules can be introduced without rebuilding the entire site.
+26. FINAL DELIVERABLES
+
+At the end of the implementation, provide:
+
+Complete website source code.
+Implemented route and page inventory.
+Component and design-system documentation.
+Technical architecture summary.
+Environment-variable example file.
+Setup and local-development instructions.
+Production build and deployment instructions.
+Testing report with actual results.
+Known limitations and unresolved issues.
+List of company information and assets still required.
+List of regulatory or environmental claims requiring review.
+Recommended next development phase.
+
+Do not stop after presenting a plan or a design description.
+
+Proceed through implementation, testing, and documentation within the available environment.
+
+Where information is missing, use explicit placeholders and record the assumption. Do not block the entire build over non-essential missing business details.
+
+The final result should feel like a credible, premium African ClimateTech infrastructure company introducing a new category of environmental technology — with a clear story, a coherent design system, a useful user journey, and a technical foundation capable of growing alongside the platform.
+
+END OF MASTER PROMPT
