@@ -40,7 +40,7 @@ export function ShareLinks({ title, url }: { title: string; url: string }) {
 
   return (
     <div className="flex flex-wrap items-center gap-3">
-      <span className="text-sm font-medium text-navy">Share this article</span>
+      <span className="text-sm font-medium text-ink">Share this article</span>
       <ul className="flex flex-wrap gap-2">
         {targets.map((target) => (
           <li key={target.label}>
@@ -48,7 +48,7 @@ export function ShareLinks({ title, url }: { title: string; url: string }) {
               href={target.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-10 items-center gap-2 rounded-pill border border-softgrey bg-white px-4 text-sm text-slate-700 hover:border-slate/40"
+              className="inline-flex min-h-10 items-center gap-2 rounded-xs border border-line bg-surface px-4 text-sm text-ink-soft hover:border-ink"
             >
               {target.label.replace("Share on ", "").replace("Share by ", "")}
               <Icon name="ExternalLink" className="size-3.5" />
@@ -60,7 +60,7 @@ export function ShareLinks({ title, url }: { title: string; url: string }) {
           <button
             type="button"
             onClick={copyLink}
-            className="inline-flex min-h-10 items-center gap-2 rounded-pill border border-softgrey bg-white px-4 text-sm text-slate-700 hover:border-slate/40"
+            className="inline-flex min-h-10 items-center gap-2 rounded-xs border border-line bg-surface px-4 text-sm text-ink-soft hover:border-ink"
           >
             {copied ? "Link copied" : "Copy link"}
             <Icon name={copied ? "Check" : "Link2"} className="size-3.5" />

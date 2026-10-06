@@ -18,8 +18,8 @@ export function TrustSection({ id = "trust" }: { id?: string }) {
         <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {principles.map((principle, index) => (
             <Reveal key={principle.title} as="li" delay={index * 50} className="h-full">
-              <div className="flex h-full flex-col gap-3 rounded-card border border-white/10 bg-white/[0.04] p-6">
-                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white/10 text-cyan">
+              <div className="flex h-full flex-col gap-3 rounded-card border border-white/10 bg-surface/[0.04] p-6">
+                <span className="inline-flex size-10 items-center justify-center rounded-xs bg-surface/10 text-accent">
                   <Icon name={principle.icon} className="size-5" />
                 </span>
                 <h3 className="text-base font-semibold tracking-[-0.01em] text-white">

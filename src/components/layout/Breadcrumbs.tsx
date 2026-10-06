@@ -13,7 +13,7 @@ export function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: 
       <nav aria-label="Breadcrumb">
         <ol
           className={`flex flex-wrap items-center gap-1.5 text-sm ${
-            tone === "dark" ? "text-white/60" : "text-slate"
+            tone === "dark" ? "text-white/60" : "text-muted-soft"
           }`}
         >
           <li>
@@ -27,7 +27,7 @@ export function Breadcrumbs({ items, tone = "light" }: { items: Crumb[]; tone?: 
               <li key={item.href} className="flex items-center gap-1.5">
                 <Icon name="ChevronRight" className="size-3.5 opacity-60" />
                 {isLast ? (
-                  <span aria-current="page" className={tone === "dark" ? "text-white" : "text-navy"}>
+                  <span aria-current="page" className={tone === "dark" ? "text-white" : "text-ink"}>
                     {item.name}
                   </span>
                 ) : (

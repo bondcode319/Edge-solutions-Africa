@@ -38,16 +38,16 @@ export function ExpansionSection() {
                     industry.name
                   )}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate">{industry.summary}</p>
+                <p className="text-sm leading-relaxed text-muted-soft">{industry.summary}</p>
                 {industry.hasDetailPage ? (
                   <span
-                    className="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-medium text-emerald-600"
+                    className="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-medium text-brand"
                     aria-hidden="true"
                   >
                     Explore category
                     <Icon
                       name="ArrowRight"
-                      className="size-4 transition-transform duration-[--duration-base] ease-[--ease-out-soft] group-hover:translate-x-1"
+                      className="size-4 transition-transform duration-[--duration-base] ease-[--ease-standard] group-hover:translate-x-1"
                     />
                   </span>
                 ) : null}

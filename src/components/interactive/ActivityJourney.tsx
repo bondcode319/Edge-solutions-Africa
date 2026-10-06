@@ -113,7 +113,7 @@ export function ActivityJourney() {
     <div>
       <div className="flex flex-wrap items-center gap-3">
         <IllustrativeTag />
-        <p className="text-sm text-slate">
+        <p className="text-sm text-muted-soft">
           Illustrative electric bus activity record — simulated throughout.
         </p>
       </div>
@@ -131,23 +131,23 @@ export function ActivityJourney() {
                   className={cn(
                     "flex w-full items-center gap-3 rounded-card border p-3.5 text-left transition-[border-color,background-color] duration-[--duration-base]",
                     isActive
-                      ? "border-emerald bg-white shadow-[var(--shadow-card)]"
-                      : "border-softgrey bg-white/60 hover:border-slate/30 hover:bg-white",
+                      ? "border-brand bg-surface shadow-[var(--shadow-card)]"
+                      : "border-line bg-surface/60 hover:border-line hover:bg-surface",
                   )}
                 >
                   <span
                     className={cn(
-                      "inline-flex size-9 shrink-0 items-center justify-center rounded-lg",
-                      isActive ? "bg-emerald text-white" : "bg-softgrey text-slate-700",
+                      "inline-flex size-9 shrink-0 items-center justify-center rounded-xs",
+                      isActive ? "bg-brand text-white" : "bg-surface-muted text-ink-soft",
                     )}
                   >
                     <Icon name={step.icon} className="size-4" />
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-xs uppercase tracking-[0.12em] text-slate">
+                    <span className="block text-xs uppercase tracking-[0.12em] text-muted-soft">
                       Step {index + 1}
                     </span>
-                    <span className="block text-sm font-medium text-navy">{step.label}</span>
+                    <span className="block text-sm font-medium text-ink">{step.label}</span>
                   </span>
                 </button>
               </li>
@@ -155,22 +155,22 @@ export function ActivityJourney() {
           })}
         </ol>
 
-        <div className="rounded-panel border border-softgrey bg-white p-6 md:p-8">
+        <div className="rounded-panel border border-line bg-surface p-6 md:p-8">
           <div className="flex flex-wrap items-center justify-between gap-3">
-            <h3 className="text-xl font-semibold tracking-[-0.02em] text-navy">{active.label}</h3>
-            <span className="inline-flex items-center gap-1.5 rounded-pill border border-cyan-600/30 bg-cyan-50 px-2.5 py-1 text-xs font-medium text-cyan-600">
+            <h3 className="text-xl font-semibold tracking-[-0.02em] text-ink">{active.label}</h3>
+            <span className="inline-flex items-center gap-1.5 rounded-xs border border-brand/30 bg-surface-alt px-2.5 py-1 text-xs font-medium text-brand">
               <Icon name="CircleDot" className="size-3.5" />
               {active.status} (simulated)
             </span>
           </div>
 
-          <p className="mt-4 text-base leading-relaxed text-slate-700">{active.body}</p>
+          <p className="mt-4 text-base leading-relaxed text-ink-soft">{active.body}</p>
 
-          <dl className="mt-6 divide-y divide-softgrey border-t border-softgrey">
+          <dl className="mt-6 divide-y divide-line border-t border-line">
             {active.fields.map((field) => (
               <div key={field.label} className="flex flex-wrap justify-between gap-2 py-3">
-                <dt className="text-sm text-slate">{field.label}</dt>
-                <dd className="text-sm font-medium text-navy">{field.value}</dd>
+                <dt className="text-sm text-muted-soft">{field.label}</dt>
+                <dd className="text-sm font-medium text-ink">{field.value}</dd>
               </div>
             ))}
           </dl>
@@ -180,18 +180,18 @@ export function ActivityJourney() {
               type="button"
               onClick={() => select(Math.max(0, activeIndex - 1))}
               disabled={activeIndex === 0}
-              className="inline-flex min-h-10 items-center gap-1.5 rounded-pill border border-navy/15 px-4 text-sm font-medium text-navy disabled:opacity-40"
+              className="inline-flex min-h-10 items-center gap-1.5 rounded-xs border border-ink/15 px-4 text-sm font-medium text-ink disabled:opacity-40"
             >
               Previous
             </button>
-            <span className="text-xs text-slate">
+            <span className="text-xs text-muted-soft">
               Step {activeIndex + 1} of {steps.length}
             </span>
             <button
               type="button"
               onClick={() => select(Math.min(steps.length - 1, activeIndex + 1))}
               disabled={activeIndex === steps.length - 1}
-              className="inline-flex min-h-10 items-center gap-1.5 rounded-pill border border-navy/15 px-4 text-sm font-medium text-navy disabled:opacity-40"
+              className="inline-flex min-h-10 items-center gap-1.5 rounded-xs border border-ink/15 px-4 text-sm font-medium text-ink disabled:opacity-40"
             >
               Next
               <Icon name="ArrowRight" className="size-4" />

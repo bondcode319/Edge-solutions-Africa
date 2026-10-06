@@ -46,11 +46,11 @@ export default function PartnersPage() {
                 <Card className="h-full">
                   <CardIcon name={category.icon} />
                   <h3 className="text-lg font-semibold tracking-[-0.01em]">{category.name}</h3>
-                  <p className="text-sm leading-relaxed text-slate">{category.body}</p>
-                  <ul className="mt-2 space-y-2 border-t border-softgrey pt-4">
+                  <p className="text-sm leading-relaxed text-muted-soft">{category.body}</p>
+                  <ul className="mt-2 space-y-2 border-t border-line pt-4">
                     {category.value.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-soft">
+                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-brand" />
                         {item}
                       </li>
                     ))}

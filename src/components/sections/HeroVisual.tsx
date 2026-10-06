@@ -16,7 +16,7 @@ import { Icon } from "@/components/ui/Icon";
 export function HeroVisual() {
   return (
     <div
-      className="relative overflow-hidden rounded-panel border border-white/10 bg-navy-800 p-5 shadow-[var(--shadow-panel)] sm:p-7"
+      className="relative overflow-hidden rounded-panel border border-white/15 bg-brand-800 p-5 shadow-[var(--shadow-panel)] sm:p-7"
       role="img"
       aria-label="Diagram: an electric bus route produces telemetry, charging and distance data; the data is assessed against a methodology and reviewed; the result is a structured environmental record that connects to rewards, project funding and reporting."
     >
@@ -32,16 +32,16 @@ export function HeroVisual() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-24 -top-24 size-64 rounded-full bg-emerald/25 blur-3xl"
+        className="pointer-events-none absolute -right-24 -top-24 size-64 rounded-full bg-brand/40 blur-3xl"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-28 -left-20 size-64 rounded-full bg-cyan/20 blur-3xl"
+        className="pointer-events-none absolute -bottom-28 -left-20 size-64 rounded-full bg-accent/20 blur-3xl"
       />
 
       <div aria-hidden="true" className="relative flex flex-col gap-3">
         <div className="flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 rounded-pill border border-cyan/30 bg-cyan/10 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.1em] text-cyan">
+          <span className="inline-flex items-center gap-1.5 rounded-xs border border-accent/30 bg-accent/10 px-2.5 py-1 text-[0.68rem] font-medium uppercase tracking-[0.1em] text-accent">
             <Icon name="FlaskConical" className="size-3" />
             Illustrative
           </span>
@@ -53,7 +53,7 @@ export function HeroVisual() {
         {/* Layer 1 — activity */}
         <HeroCard>
           <div className="flex items-center gap-3">
-            <span className="inline-flex size-10 items-center justify-center rounded-xl bg-emerald/15 text-emerald-400">
+            <span className="inline-flex size-10 items-center justify-center rounded-xs bg-brand/20 text-accent-soft">
               <Icon name="BusFront" className="size-5" />
             </span>
             <div className="min-w-0">
@@ -74,9 +74,9 @@ export function HeroVisual() {
           ].map((chip) => (
             <div
               key={chip.label}
-              className="flex flex-col items-center gap-1.5 rounded-card border border-white/10 bg-white/[0.04] px-2 py-3 text-center"
+              className="flex flex-col items-center gap-1.5 rounded-card border border-white/10 bg-surface/[0.04] px-2 py-3 text-center"
             >
-              <Icon name={chip.icon} className="size-4 text-cyan" />
+              <Icon name={chip.icon} className="size-4 text-accent" />
               <span className="text-[0.7rem] text-white/70">{chip.label}</span>
             </div>
           ))}
@@ -87,7 +87,7 @@ export function HeroVisual() {
         {/* Layer 3 — verification */}
         <HeroCard>
           <div className="flex items-center gap-3">
-            <span className="inline-flex size-10 items-center justify-center rounded-xl bg-cyan/15 text-cyan">
+            <span className="inline-flex size-10 items-center justify-center rounded-xs bg-accent/15 text-accent">
               <Icon name="ShieldCheck" className="size-5" />
             </span>
             <div className="min-w-0 flex-1">
@@ -102,7 +102,7 @@ export function HeroVisual() {
         {/* Layer 4 — record and utility */}
         <HeroCard highlight>
           <div className="flex items-center gap-3">
-            <span className="inline-flex size-10 items-center justify-center rounded-xl bg-white/10 text-white">
+            <span className="inline-flex size-10 items-center justify-center rounded-xs bg-surface/10 text-white">
               <Icon name="Layers" className="size-5" />
             </span>
             <div className="min-w-0 flex-1">
@@ -117,7 +117,7 @@ export function HeroVisual() {
               { icon: "ClipboardCheck", label: "Reporting" },
             ].map((chip) => (
               <div key={chip.label} className="flex items-center gap-1.5">
-                <Icon name={chip.icon} className="size-3.5 text-emerald-400" />
+                <Icon name={chip.icon} className="size-3.5 text-accent-soft" />
                 <span className="text-[0.7rem] text-white/70">{chip.label}</span>
               </div>
             ))}
@@ -139,8 +139,8 @@ function HeroCard({
     <div
       className={`rounded-card border p-4 ${
         highlight
-          ? "border-emerald/30 bg-emerald/[0.08]"
-          : "border-white/10 bg-white/[0.04]"
+          ? "border-accent/40 bg-accent/[0.08]"
+          : "border-white/10 bg-surface/[0.04]"
       }`}
     >
       {children}
@@ -151,7 +151,7 @@ function HeroCard({
 function Connector({ label }: { label: string }) {
   return (
     <div className="flex items-center gap-3 px-1">
-      <span className="h-6 w-px bg-gradient-to-b from-white/10 via-cyan/50 to-white/10" />
+      <span className="h-6 w-px bg-gradient-to-b from-white/10 via-accent/60 to-white/10" />
       <span className="text-[0.68rem] text-white/40">{label}</span>
     </div>
   );

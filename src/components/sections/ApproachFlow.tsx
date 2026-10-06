@@ -1,6 +1,7 @@
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionArt } from "@/components/ui/SectionArt";
 import { approachSteps } from "@/content/home";
 
 /**
@@ -8,7 +9,7 @@ import { approachSteps } from "@/content/home";
  * connectors are decorative — the numbered list carries the sequence for
  * screen readers and for anyone with images or CSS unavailable.
  */
-export function ApproachFlow() {
+export async function ApproachFlow() {
   return (
     <Section tone="white" id="approach" ariaLabelledBy="approach-heading">
       <Container>
@@ -24,7 +25,7 @@ export function ApproachFlow() {
             <Reveal key={step.id} as="li" delay={index * 80} className="relative">
               <div className="flex gap-4 lg:flex-col lg:gap-4">
                 <div className="relative flex flex-col items-center lg:w-full lg:flex-row">
-                  <span className="relative z-10 inline-flex size-12 shrink-0 items-center justify-center rounded-2xl border border-softgrey bg-white text-emerald-600 shadow-[var(--shadow-card)]">
+                  <span className="relative z-10 inline-flex size-12 shrink-0 items-center justify-center rounded-xs border border-line bg-surface text-brand shadow-[var(--shadow-card)]">
                     <Icon name={step.icon} className="size-5" />
                   </span>
 
@@ -32,24 +33,27 @@ export function ApproachFlow() {
                   {index < approachSteps.length - 1 ? (
                     <span
                       aria-hidden="true"
-                      className="mt-2 w-px flex-1 bg-gradient-to-b from-softgrey to-transparent lg:mt-0 lg:ml-3 lg:h-px lg:w-full lg:flex-none lg:bg-gradient-to-r lg:from-softgrey lg:to-softgrey/20"
+                      className="mt-2 w-px flex-1 bg-gradient-to-b from-line to-transparent lg:mt-0 lg:ml-3 lg:h-px lg:w-full lg:flex-none lg:bg-gradient-to-r lg:from-line lg:to-line/20"
                     />
                   ) : null}
                 </div>
 
                 <div className="pb-2 lg:pb-0">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate">
+                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-soft">
                     Step {index + 1}
                   </p>
-                  <h3 className="mt-1.5 text-base font-semibold tracking-[-0.01em] text-navy">
+                  <h3 className="mt-1.5 text-base font-semibold tracking-[-0.01em] text-ink">
                     {step.label}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate">{step.body}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-soft">{step.body}</p>
                 </div>
               </div>
             </Reveal>
           ))}
         </ol>
+
+        {/* Renders nothing until the image is generated. */}
+        <SectionArt id="home-approach" className="mt-14 w-full" ratio="21 / 9" sizes="100vw" />
       </Container>
     </Section>
   );

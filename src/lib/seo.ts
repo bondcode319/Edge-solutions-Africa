@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
+import { getImage, type ImageEntry } from "@/content/images";
+
+/**
+ * Social share image, resolved from the manifest.
+ *
+ * A share image is only declared when the file has actually been generated —
+ * pointing at a missing asset produces a broken preview, which is worse than no
+ * preview at all. Pass a more specific entry (solution, article) to override.
+ */
+function shareImage(override?: ImageEntry): ImageEntry | undefined {
+  return override ?? getImage("og-default");
+}
 
 /**
  * Page metadata helper. Every route calls this so titles, canonicals and social
@@ -11,6 +23,7 @@ export function buildMetadata({
   path,
   noIndex = false,
   absoluteTitle = false,
+  image,
 }: {
   title: string;
   description: string;
@@ -19,8 +32,21 @@ export function buildMetadata({
   noIndex?: boolean;
   /** Skip the "| Edge Solutions Africa" suffix — used by the homepage. */
   absoluteTitle?: boolean;
+  /** Route-specific share image. Falls back to the default card. */
+  image?: ImageEntry;
 }): Metadata {
   const canonical = new URL(path, siteConfig.url).toString();
+  const social = shareImage(image);
+
+  // Absolute URL, because social scrapers do not resolve relative paths.
+  const ogImage = social
+    ? {
+        url: new URL(social.file, siteConfig.url).toString(),
+        width: 1200,
+        height: 630,
+        alt: social.alt,
+      }
+    : undefined;
 
   return {
     title: absoluteTitle ? { absolute: title } : title,
@@ -34,11 +60,13 @@ export function buildMetadata({
       title,
       description,
       url: canonical,
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
     twitter: {
-      card: "summary_large_image",
+      card: ogImage ? "summary_large_image" : "summary",
       title,
       description,
+      ...(ogImage ? { images: [ogImage.url] } : {}),
     },
   };
 }

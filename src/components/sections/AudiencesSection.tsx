@@ -33,15 +33,15 @@ export function AudiencesSection() {
                     {audience.name}
                   </Link>
                 </h3>
-                <p className="text-sm leading-relaxed text-slate">{audience.body}</p>
-                <p className="mt-auto border-t border-softgrey pt-4 text-sm text-slate-700">
-                  <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-slate">
+                <p className="text-sm leading-relaxed text-muted-soft">{audience.body}</p>
+                <p className="mt-auto border-t border-line pt-4 text-sm text-ink-soft">
+                  <span className="block text-xs font-semibold uppercase tracking-[0.12em] text-muted-soft">
                     How to engage
                   </span>
                   <span className="mt-1.5 flex items-start gap-2">
                     <Icon
                       name="ArrowRight"
-                      className="mt-0.5 size-4 shrink-0 text-emerald-600 transition-transform duration-[--duration-base] ease-[--ease-out-soft] group-hover:translate-x-1"
+                      className="mt-0.5 size-4 shrink-0 text-brand transition-transform duration-[--duration-base] ease-[--ease-standard] group-hover:translate-x-1"
                     />
                     {audience.pathway}
                   </span>

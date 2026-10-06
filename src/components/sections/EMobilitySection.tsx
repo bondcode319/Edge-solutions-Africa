@@ -3,9 +3,10 @@ import { Container, Section, SectionHeading } from "@/components/ui/Section";
 import { Icon } from "@/components/ui/Icon";
 import { Callout } from "@/components/ui/Callout";
 import { Reveal } from "@/components/ui/Reveal";
+import { SectionArt } from "@/components/ui/SectionArt";
 import { eMobilityStart } from "@/content/home";
 
-export function EMobilitySection() {
+export async function EMobilitySection() {
   return (
     <Section tone="forest" id="e-mobility" ariaLabelledBy="e-mobility-heading">
       <Container>
@@ -26,6 +27,13 @@ export function EMobilitySection() {
             >
               {eMobilityStart.cta.label}
             </ButtonLink>
+
+            {/* Renders nothing until the image is generated. */}
+            <SectionArt
+              id="home-e-mobility"
+              className="mt-10 w-full max-w-md"
+              sizes="(min-width: 1024px) 40vw, 100vw"
+            />
           </div>
 
           <div>
@@ -35,8 +43,8 @@ export function EMobilitySection() {
             <ol className="mt-5 space-y-3">
               {eMobilityStart.journey.map((stage, index) => (
                 <Reveal key={stage.label} as="li" delay={index * 70}>
-                  <div className="flex items-start gap-4 rounded-card border border-white/10 bg-white/[0.05] p-4">
-                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-sm font-semibold text-cyan">
+                  <div className="flex items-start gap-4 rounded-card border border-white/10 bg-surface/[0.05] p-4">
+                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-xs bg-surface/10 text-sm font-semibold text-accent">
                       {index + 1}
                     </span>
                     <div>
@@ -54,7 +62,7 @@ export function EMobilitySection() {
               ))}
             </ol>
 
-            <Callout tone="illustrative" className="mt-5 border-white/15 bg-white/[0.05] text-white/70">
+            <Callout tone="illustrative" className="mt-5 border-white/15 bg-surface/[0.05] text-white/70">
               <span className="text-white/70">{eMobilityStart.note}</span>
             </Callout>
           </div>

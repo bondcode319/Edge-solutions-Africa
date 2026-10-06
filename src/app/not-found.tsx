@@ -13,9 +13,9 @@ const suggestions = [
 
 export default function NotFound() {
   return (
-    <section className="on-dark bg-navy text-white">
+    <section className="on-dark bg-brand-900 text-white">
       <Container className="py-20 md:py-32">
-        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan">Error 404</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">Error 404</p>
         <h1 className="mt-5 max-w-2xl text-4xl font-semibold leading-[1.1] tracking-[-0.03em] sm:text-5xl">
           We could not find that page.
         </h1>
@@ -29,7 +29,7 @@ export default function NotFound() {
             <li key={suggestion.href}>
               <Link
                 href={suggestion.href}
-                className="inline-flex min-h-11 items-center gap-2 rounded-pill border border-white/20 px-4 text-sm text-white/85 hover:border-white/50 hover:text-white"
+                className="inline-flex min-h-11 items-center gap-2 rounded-xs border border-white/20 px-4 text-sm text-white/85 hover:border-white/50 hover:text-white"
               >
                 {suggestion.label}
                 <Icon name="ArrowRight" className="size-4" />

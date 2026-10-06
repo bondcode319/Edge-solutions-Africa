@@ -10,7 +10,8 @@
 | Chrome-only browser testing | Safari and Firefox unverified | see `docs/TESTING.md` |
 | No end-to-end test suite | Interaction coverage is manual and recorded, not automated | — |
 | No photography | Visual identity rests entirely on designed diagrams | `docs/INFORMATION-REQUIRED.md` |
-| No Open Graph image | Social shares render without an image | — |
+| AI imagery prepared but not generated | 33 images are specified and tested in `src/content/images.ts`; none generated. Needs an API key and human review | `public/images/README.md` |
+| No Open Graph image | Social shares render without an image | `docs/INFORMATION-REQUIRED.md` |
 | Content layer is code, not a CMS | Non-technical editors need a developer to publish | `src/content/` |
 | Articles are drafts | `noindex` and excluded from the sitemap until published | `src/content/insights.ts` |
 | Enquiries are not stored | Delivery is by email only; no CRM or database record | `src/app/api/contact/route.ts` |

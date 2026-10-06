@@ -6,6 +6,8 @@ import type { Article } from "@/content/insights";
 import { articleCategories } from "@/content/insights";
 import { cn } from "@/lib/cn";
 import { Icon } from "@/components/ui/Icon";
+import { Figure } from "@/components/ui/Figure";
+import type { ImageEntry } from "@/content/images";
 import { trackEvent } from "@/lib/analytics";
 
 /**
@@ -14,8 +16,17 @@ import { trackEvent } from "@/lib/analytics";
  * Filtering happens in the browser over a list that is already server-rendered,
  * so every article is in the initial HTML for crawlers and for anyone without
  * JavaScript. The result count is announced politely for screen readers.
+ *
+ * `covers` is resolved on the server and keyed by manifest id. Only generated
+ * files appear in it, so an article without a cover simply renders without one.
  */
-export function InsightsBrowser({ articles }: { articles: Article[] }) {
+export function InsightsBrowser({
+  articles,
+  covers,
+}: {
+  articles: Article[];
+  covers: Record<string, ImageEntry>;
+}) {
   const [category, setCategory] = useState<string>("All");
   const [query, setQuery] = useState("");
   const searchId = useId();
@@ -38,7 +49,7 @@ export function InsightsBrowser({ articles }: { articles: Article[] }) {
     <div>
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-slate">
+          <p className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-soft">
             Filter by category
           </p>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -49,10 +60,10 @@ export function InsightsBrowser({ articles }: { articles: Article[] }) {
                   onClick={() => setCategory(option)}
                   aria-pressed={category === option}
                   className={cn(
-                    "inline-flex min-h-9 items-center rounded-pill border px-3.5 text-sm transition-colors duration-[--duration-fast]",
+                    "inline-flex min-h-9 items-center rounded-xs border px-3.5 text-sm transition-colors duration-[--duration-fast]",
                     category === option
-                      ? "border-emerald bg-emerald text-white"
-                      : "border-softgrey bg-white text-slate-700 hover:border-slate/40",
+                      ? "border-brand bg-brand text-white"
+                      : "border-line bg-surface text-ink-soft hover:border-ink",
                   )}
                 >
                   {option}
@@ -63,7 +74,7 @@ export function InsightsBrowser({ articles }: { articles: Article[] }) {
         </div>
 
         <div className="lg:w-72">
-          <label htmlFor={searchId} className="text-xs font-semibold uppercase tracking-[0.12em] text-slate">
+          <label htmlFor={searchId} className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-soft">
             Search articles
           </label>
           <input
@@ -72,27 +83,27 @@ export function InsightsBrowser({ articles }: { articles: Article[] }) {
             value={query}
             onChange={(event) => setQuery(event.currentTarget.value)}
             placeholder="Search by title or topic"
-            className="mt-3 min-h-11 w-full rounded-card border border-softgrey bg-white px-4 text-sm text-navy placeholder:text-slate/60"
+            className="mt-3 min-h-11 w-full rounded-card border border-line bg-surface px-4 text-sm text-ink placeholder:text-muted-soft/60"
           />
         </div>
       </div>
 
-      <p role="status" aria-live="polite" className="mt-6 text-sm text-slate">
+      <p role="status" aria-live="polite" className="mt-6 text-sm text-muted-soft">
         {filtered.length} {filtered.length === 1 ? "article" : "articles"}
         {category === "All" ? "" : ` in ${category}`}
         {query.trim() ? ` matching “${query.trim()}”` : ""}.
       </p>
 
       {filtered.length === 0 ? (
-        <div className="mt-6 rounded-panel border border-softgrey bg-white p-8 text-center">
-          <p className="text-base font-medium text-navy">No articles match that search.</p>
+        <div className="mt-6 rounded-panel border border-line bg-surface p-8 text-center">
+          <p className="text-base font-medium text-ink">No articles match that search.</p>
           <button
             type="button"
             onClick={() => {
               setCategory("All");
               setQuery("");
             }}
-            className="mt-3 text-sm font-medium text-emerald-600 underline"
+            className="mt-3 text-sm font-medium text-brand underline"
           >
             Clear filters
           </button>
@@ -104,27 +115,33 @@ export function InsightsBrowser({ articles }: { articles: Article[] }) {
               <Link
                 href={`/insights/${article.slug}`}
                 onClick={() => trackEvent("article_opened", { slug: article.slug })}
-                className="group flex h-full flex-col gap-3 rounded-card border border-softgrey bg-white p-6 transition-[border-color,box-shadow,transform] duration-[--duration-base] ease-[--ease-out-soft] hover:-translate-y-0.5 hover:border-emerald/30 hover:shadow-[var(--shadow-card-hover)]"
+                className="group flex h-full flex-col gap-3 rounded-card border border-line bg-surface p-6 transition-[border-color,box-shadow,transform] duration-[--duration-base] ease-[--ease-standard] hover:-translate-y-0.5 hover:border-brand/30 hover:shadow-[var(--shadow-card-hover)]"
               >
+                {/* Renders nothing until the cover is generated. */}
+                <Figure
+                  image={covers[`insight-${article.slug}`]}
+                  className="-mx-6 -mt-6 mb-1 aspect-16/9 w-[calc(100%+3rem)] rounded-b-xs"
+                  sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                />
                 <div className="flex items-center gap-2">
-                  <span className="rounded-pill bg-emerald-50 px-2.5 py-1 text-xs font-medium text-emerald-600">
+                  <span className="rounded-xs bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand">
                     {article.category}
                   </span>
                   {article.status === "draft" ? (
-                    <span className="rounded-pill border border-softgrey px-2.5 py-1 text-xs font-medium text-slate">
+                    <span className="rounded-xs border border-line px-2.5 py-1 text-xs font-medium text-muted-soft">
                       Draft
                     </span>
                   ) : null}
                 </div>
-                <h3 className="text-lg font-semibold tracking-[-0.01em] text-navy">
+                <h3 className="text-lg font-semibold tracking-[-0.01em] text-ink">
                   {article.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-slate">{article.excerpt}</p>
+                <p className="text-sm leading-relaxed text-muted-soft">{article.excerpt}</p>
                 <span className="mt-auto flex items-center justify-between pt-3 text-sm">
-                  <span className="text-slate">{article.readingMinutes} min read</span>
+                  <span className="text-muted-soft">{article.readingMinutes} min read</span>
                   <Icon
                     name="ArrowRight"
-                    className="size-4 text-emerald-600 transition-transform duration-[--duration-base] group-hover:translate-x-1"
+                    className="size-4 text-brand transition-transform duration-[--duration-base] group-hover:translate-x-1"
                   />
                 </span>
               </Link>

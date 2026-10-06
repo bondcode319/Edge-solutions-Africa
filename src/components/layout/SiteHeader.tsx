@@ -79,8 +79,8 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 border-b bg-white/90 backdrop-blur transition-[box-shadow,border-color] duration-[--duration-base]",
-        scrolled ? "border-softgrey shadow-[0_1px_0_rgba(11,18,32,0.06)]" : "border-transparent",
+        "sticky top-0 z-50 border-b bg-surface transition-shadow duration-[--duration-base]",
+        scrolled ? "border-line shadow-[var(--shadow-nav)]" : "border-transparent",
       )}
     >
       <div className="container-content flex h-16 items-center justify-between gap-4 md:h-20">
@@ -118,7 +118,7 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="inline-flex size-11 items-center justify-center rounded-lg text-navy hover:bg-navy/5 lg:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-xs text-ink hover:bg-surface-muted lg:hidden"
             aria-expanded={mobileOpen}
             aria-controls="mobile-navigation"
             onClick={() => setMobileOpen((open) => !open)}
@@ -152,8 +152,8 @@ function DesktopNavItem({
   const triggerRef = useRef<HTMLButtonElement>(null);
 
   const linkStyles = cn(
-    "inline-flex min-h-10 items-center gap-1 rounded-lg px-3 text-[0.95rem] font-medium transition-colors duration-[--duration-fast]",
-    active ? "text-emerald-600" : "text-navy hover:text-emerald-600",
+    "inline-flex min-h-10 items-center gap-1 rounded-xs px-3 text-[0.95rem] transition-colors duration-[--duration-base] ease-[--ease-standard]",
+    active ? "font-medium text-brand" : "text-ink hover:text-brand",
   );
 
   if (!item.sections) {
@@ -201,29 +201,27 @@ function DesktopNavItem({
 
       <div
         className={cn(
-          "absolute left-1/2 top-full z-50 w-max -translate-x-1/2 pt-3 transition-[opacity,transform] duration-[--duration-base] ease-[--ease-out-soft]",
+          "absolute left-1/2 top-full z-50 w-max -translate-x-1/2 pt-3 transition-[opacity,transform] duration-[--duration-base] ease-[--ease-standard]",
           open
             ? "pointer-events-auto opacity-100 translate-y-0"
             : "pointer-events-none -translate-y-1 opacity-0",
         )}
         hidden={!open}
       >
-        <div className="flex gap-6 rounded-panel border border-softgrey bg-white p-6 shadow-[var(--shadow-panel)]">
+        <div className="flex gap-6 rounded-panel border border-line bg-surface p-6 shadow-[var(--shadow-panel)]">
           {item.sections.map((section) => (
             <div key={section.heading} className="w-[19rem]">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate">
-                {section.heading}
-              </p>
+              <p className="eyebrow mb-3 text-muted">{section.heading}</p>
               <ul className="flex flex-col gap-1">
                 {section.links.map((link) => (
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="block rounded-lg px-3 py-2.5 transition-colors duration-[--duration-fast] hover:bg-offwhite"
+                      className="block rounded-xs px-3 py-2.5 transition-colors duration-[--duration-fast] hover:bg-surface-alt"
                     >
-                      <span className="block text-sm font-medium text-navy">{link.label}</span>
+                      <span className="block text-sm font-medium text-ink">{link.label}</span>
                       {link.description ? (
-                        <span className="mt-0.5 block text-xs leading-relaxed text-slate">
+                        <span className="mt-0.5 block text-xs leading-relaxed text-muted-soft">
                           {link.description}
                         </span>
                       ) : null}
@@ -235,12 +233,12 @@ function DesktopNavItem({
           ))}
 
           {item.featured ? (
-            <div className="w-[17rem] rounded-card bg-navy p-5 text-white">
-              <p className="text-sm font-semibold">{item.featured.title}</p>
+            <div className="w-[17rem] rounded-card bg-brand-900 p-5 text-white">
+              <p className="font-display text-base font-normal">{item.featured.title}</p>
               <p className="mt-2 text-xs leading-relaxed text-white/70">{item.featured.body}</p>
               <Link
                 href={item.featured.href}
-                className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-cyan hover:underline"
+                className="mt-4 inline-flex items-center gap-1.5 text-xs font-medium text-accent hover:underline"
               >
                 {item.featured.cta}
                 <Icon name="ArrowRight" className="size-3.5" />
@@ -266,19 +264,19 @@ function MobileNavigation({
     <div
       id="mobile-navigation"
       hidden={!open}
-      className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-softgrey bg-white lg:hidden"
+      className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-surface lg:hidden"
     >
       <nav aria-label="Main (mobile)" className="container-content py-4">
-        <ul className="flex flex-col divide-y divide-softgrey">
+        <ul className="flex flex-col divide-y divide-line">
           {mainNavigation.map((item) => (
             <li key={item.label} className="py-1">
               {item.sections ? (
                 <details className="group">
-                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-2 text-base font-medium text-navy">
+                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-2 text-base font-medium text-ink">
                     {item.label}
                     <Icon
                       name="ChevronDown"
-                      className="size-5 text-slate transition-transform duration-[--duration-fast] group-open:rotate-180"
+                      className="size-5 text-muted transition-transform duration-[--duration-fast] group-open:rotate-180"
                     />
                   </summary>
                   <ul className="flex flex-col gap-1 pb-3 pl-1">
@@ -286,7 +284,7 @@ function MobileNavigation({
                       <Link
                         href={item.href}
                         onClick={onNavigate}
-                        className="block rounded-lg px-2 py-2.5 text-sm font-medium text-emerald-600"
+                        className="block rounded-xs px-2 py-2.5 text-sm font-medium text-brand"
                       >
                         {item.label} overview
                       </Link>
@@ -301,7 +299,7 @@ function MobileNavigation({
                           <Link
                             href={link.href}
                             onClick={onNavigate}
-                            className="block rounded-lg px-2 py-2.5 text-sm text-slate-700 hover:bg-offwhite"
+                            className="block rounded-xs px-2 py-2.5 text-sm text-muted-soft hover:bg-surface-alt"
                           >
                             {link.label}
                           </Link>
@@ -316,8 +314,8 @@ function MobileNavigation({
                   onClick={onNavigate}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
-                    "flex min-h-12 items-center text-base font-medium",
-                    isActive(item.href) ? "text-emerald-600" : "text-navy",
+                    "flex min-h-12 items-center text-base",
+                    isActive(item.href) ? "text-brand" : "text-ink",
                   )}
                 >
                   {item.label}

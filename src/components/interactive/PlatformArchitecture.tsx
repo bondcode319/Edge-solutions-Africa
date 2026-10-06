@@ -71,26 +71,26 @@ export function PlatformArchitecture() {
                 onClick={() => select(layer.id)}
                 onKeyDown={(event) => onKeyDown(event, index)}
                 className={cn(
-                  "w-full rounded-card border p-4 text-left transition-[border-color,background-color,box-shadow] duration-[--duration-base] ease-[--ease-out-soft]",
+                  "w-full rounded-card border p-4 text-left transition-[border-color,background-color,box-shadow] duration-[--duration-base] ease-[--ease-standard]",
                   selected
-                    ? "border-emerald bg-white shadow-[var(--shadow-card)]"
-                    : "border-softgrey bg-white/60 hover:border-slate/30 hover:bg-white",
+                    ? "border-brand bg-surface shadow-[var(--shadow-card)]"
+                    : "border-line bg-surface/60 hover:border-line hover:bg-surface",
                 )}
               >
                 <span className="flex items-center gap-3">
                   <span
                     className={cn(
-                      "inline-flex size-8 shrink-0 items-center justify-center rounded-lg text-xs font-semibold",
+                      "inline-flex size-8 shrink-0 items-center justify-center rounded-xs text-xs font-semibold",
                       selected
-                        ? "bg-emerald text-white"
-                        : "bg-softgrey text-slate-700",
+                        ? "bg-brand text-white"
+                        : "bg-surface-muted text-ink-soft",
                     )}
                   >
                     {layer.index}
                   </span>
                   <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold text-navy">{layer.name}</span>
-                    <span className="mt-0.5 block text-xs leading-relaxed text-slate">
+                    <span className="block text-sm font-semibold text-ink">{layer.name}</span>
+                    <span className="mt-0.5 block text-xs leading-relaxed text-muted-soft">
                       {layer.summary}
                     </span>
                   </span>
@@ -98,7 +98,7 @@ export function PlatformArchitecture() {
                     name="ChevronRight"
                     className={cn(
                       "size-4 shrink-0 transition-transform duration-[--duration-base]",
-                      selected ? "text-emerald-600" : "text-slate/50",
+                      selected ? "text-brand" : "text-muted-soft/50",
                     )}
                   />
                 </span>
@@ -107,7 +107,7 @@ export function PlatformArchitecture() {
               {index < platformLayers.length - 1 ? (
                 <span
                   aria-hidden="true"
-                  className="mx-auto block h-2 w-px bg-softgrey"
+                  className="mx-auto block h-2 w-px bg-surface-muted"
                 />
               ) : null}
             </div>
@@ -124,43 +124,43 @@ export function PlatformArchitecture() {
             aria-labelledby={`${baseId}-tab-${layer.id}`}
             hidden={layer.id !== activeId}
             tabIndex={0}
-            className="rounded-panel border border-softgrey bg-white p-6 md:p-8"
+            className="rounded-panel border border-line bg-surface p-6 md:p-8"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-600">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-brand">
               Layer {layer.index}
             </p>
-            <h3 className="mt-2 text-2xl font-semibold tracking-[-0.02em] text-navy">
+            <h3 className="mt-2 text-2xl font-semibold tracking-[-0.02em] text-ink">
               {layer.name}
             </h3>
-            <p className="mt-4 text-base leading-relaxed text-slate-700">{layer.purpose}</p>
+            <p className="mt-4 text-base leading-relaxed text-ink-soft">{layer.purpose}</p>
 
-            <h4 className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-slate">
+            <h4 className="mt-7 text-xs font-semibold uppercase tracking-[0.14em] text-muted-soft">
               Examples
             </h4>
             <ul className="mt-3 grid gap-2 sm:grid-cols-2">
               {layer.examples.map((example) => (
-                <li key={example} className="flex items-start gap-2 text-sm text-slate-700">
-                  <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                <li key={example} className="flex items-start gap-2 text-sm text-ink-soft">
+                  <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-brand" />
                   {example}
                 </li>
               ))}
             </ul>
 
             {layer.connectsTo ? (
-              <div className="mt-7 rounded-card border border-cyan-600/25 bg-cyan-50 p-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-cyan-600">
+              <div className="mt-7 rounded-card border border-brand/25 bg-surface-alt p-4">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-brand">
                   Connects to the next layer
                 </p>
-                <p className="mt-1.5 text-sm leading-relaxed text-slate-700">{layer.connectsTo}</p>
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-soft">{layer.connectsTo}</p>
               </div>
             ) : null}
 
-            <div className="mt-7 flex flex-wrap gap-3 border-t border-softgrey pt-5">
+            <div className="mt-7 flex flex-wrap gap-3 border-t border-line pt-5">
               {layer.relatedLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 hover:underline"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-brand hover:underline"
                 >
                   {link.label}
                   <Icon name="ArrowRight" className="size-4" />

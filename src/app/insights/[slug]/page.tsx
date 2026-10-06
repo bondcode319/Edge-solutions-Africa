@@ -51,7 +51,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   return (
     <>
       <article>
-        <section className="on-dark relative overflow-hidden bg-navy text-white">
+        <section className="on-dark relative overflow-hidden bg-brand-900 text-white">
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 bg-[radial-gradient(55%_55%_at_10%_0%,rgba(21,150,107,0.20),transparent_60%)]"
@@ -66,11 +66,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             />
 
             <div className="mt-8 flex flex-wrap items-center gap-2">
-              <span className="rounded-pill bg-white/10 px-2.5 py-1 text-xs font-medium text-cyan">
+              <span className="rounded-xs bg-surface/10 px-2.5 py-1 text-xs font-medium text-accent">
                 {article.category}
               </span>
               {article.status === "draft" ? (
-                <span className="rounded-pill border border-white/20 px-2.5 py-1 text-xs font-medium text-white/70">
+                <span className="rounded-xs border border-white/20 px-2.5 py-1 text-xs font-medium text-white/70">
                   Draft — not yet published
                 </span>
               ) : null}
@@ -118,12 +118,12 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
             <div className="space-y-10">
               {article.sections.map((section) => (
                 <section key={section.heading}>
-                  <h2 className="text-2xl font-semibold tracking-[-0.02em] text-navy">
+                  <h2 className="text-2xl font-semibold tracking-[-0.02em] text-ink">
                     {section.heading}
                   </h2>
                   <div className="mt-4 space-y-4">
                     {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph} className="text-base leading-[1.75] text-slate-700">
+                      <p key={paragraph} className="text-base leading-[1.75] text-ink-soft">
                         {paragraph}
                       </p>
                     ))}
@@ -131,10 +131,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                   {section.list ? (
                     <ul className="mt-5 space-y-2.5">
                       {section.list.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-base text-slate-700">
+                        <li key={item} className="flex items-start gap-3 text-base text-ink-soft">
                           <Icon
                             name="Check"
-                            className="mt-1 size-4 shrink-0 text-emerald-600"
+                            className="mt-1 size-4 shrink-0 text-brand"
                           />
                           {item}
                         </li>
@@ -145,7 +145,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               ))}
             </div>
 
-            <div className="mt-12 border-t border-softgrey pt-6">
+            <div className="mt-12 border-t border-line pt-6">
               <ShareLinks title={article.title} url={url} />
             </div>
           </Container>
@@ -157,7 +157,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           <Container>
             <h2
               id="related-articles-heading"
-              className="text-xl font-semibold tracking-[-0.01em] text-navy"
+              className="text-xl font-semibold tracking-[-0.01em] text-ink"
             >
               Related articles
             </h2>
@@ -166,11 +166,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
                 <li key={item.slug}>
                   <Link
                     href={`/insights/${item.slug}`}
-                    className="group flex h-full flex-col gap-2 rounded-card border border-softgrey bg-offwhite p-5 transition-colors hover:border-emerald/30"
+                    className="group flex h-full flex-col gap-2 rounded-card border border-line bg-surface-alt p-5 transition-colors hover:border-brand/30"
                   >
-                    <span className="text-xs font-medium text-emerald-600">{item.category}</span>
-                    <span className="text-base font-semibold text-navy">{item.title}</span>
-                    <span className="text-sm text-slate">{item.excerpt}</span>
+                    <span className="text-xs font-medium text-brand">{item.category}</span>
+                    <span className="text-base font-semibold text-ink">{item.title}</span>
+                    <span className="text-sm text-muted-soft">{item.excerpt}</span>
                   </Link>
                 </li>
               ))}

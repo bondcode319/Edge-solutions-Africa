@@ -54,15 +54,15 @@ export default function IndustriesPage() {
             {requirements.map((requirement) => (
               <li
                 key={requirement.title}
-                className="rounded-card border border-softgrey bg-white p-6"
+                className="rounded-card border border-line bg-surface p-6"
               >
-                <span className="inline-flex size-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                <span className="inline-flex size-11 items-center justify-center rounded-xs bg-brand-50 text-brand">
                   <Icon name={requirement.icon} className="size-5" />
                 </span>
-                <h3 className="mt-4 text-base font-semibold tracking-[-0.01em] text-navy">
+                <h3 className="mt-4 text-base font-semibold tracking-[-0.01em] text-ink">
                   {requirement.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{requirement.body}</p>
+                <p className="mt-2 text-sm leading-relaxed text-muted-soft">{requirement.body}</p>
               </li>
             ))}
           </ul>

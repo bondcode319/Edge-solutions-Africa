@@ -39,7 +39,7 @@ export default function AboutPage() {
           />
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {aboutIntro.body.map((paragraph) => (
-              <p key={paragraph} className="text-base leading-relaxed text-slate-700">
+              <p key={paragraph} className="text-base leading-relaxed text-ink-soft">
                 {paragraph}
               </p>
             ))}
@@ -65,10 +65,10 @@ export default function AboutPage() {
             {valueGap.problems.map((problem) => (
               <li
                 key={problem.title}
-                className="rounded-card border border-softgrey bg-offwhite p-5"
+                className="rounded-card border border-line bg-surface-alt p-5"
               >
-                <h3 className="text-sm font-semibold text-navy">{problem.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">{problem.body}</p>
+                <h3 className="text-sm font-semibold text-ink">{problem.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-soft">{problem.body}</p>
               </li>
             ))}
           </ul>
@@ -84,12 +84,12 @@ export default function AboutPage() {
             tone="dark"
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2">
-            <div className="rounded-panel border border-white/10 bg-white/[0.05] p-6 md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan">Vision</p>
+            <div className="rounded-panel border border-white/10 bg-surface/[0.05] p-6 md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Vision</p>
               <p className="mt-4 text-lg leading-relaxed text-white/85">{siteConfig.vision}</p>
             </div>
-            <div className="rounded-panel border border-white/10 bg-white/[0.05] p-6 md:p-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cyan">Mission</p>
+            <div className="rounded-panel border border-white/10 bg-surface/[0.05] p-6 md:p-8">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">Mission</p>
               <p className="mt-4 text-lg leading-relaxed text-white/85">{siteConfig.mission}</p>
             </div>
           </div>
@@ -108,11 +108,11 @@ export default function AboutPage() {
             {whatWeAreBuilding.items.map((item, index) => (
               <Reveal key={item.title} as="li" delay={index * 50} className="h-full">
                 <Card className="h-full">
-                  <span className="inline-flex size-9 items-center justify-center rounded-lg bg-emerald-50 text-xs font-semibold text-emerald-600">
+                  <span className="inline-flex size-9 items-center justify-center rounded-xs bg-brand-50 text-xs font-semibold text-brand">
                     {index + 1}
                   </span>
                   <h3 className="text-base font-semibold tracking-[-0.01em]">{item.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate">{item.body}</p>
+                  <p className="text-sm leading-relaxed text-muted-soft">{item.body}</p>
                 </Card>
               </Reveal>
             ))}
@@ -130,7 +130,7 @@ export default function AboutPage() {
             />
             <div className="space-y-4">
               {whyEMobility.body.map((paragraph) => (
-                <p key={paragraph} className="text-base leading-relaxed text-slate-700">
+                <p key={paragraph} className="text-base leading-relaxed text-ink-soft">
                   {paragraph}
                 </p>
               ))}
@@ -150,19 +150,19 @@ export default function AboutPage() {
           <ol className="mt-12 space-y-3">
             {platformLayers.map((layer, index) => (
               <Reveal key={layer.id} as="li" delay={index * 50}>
-                <div className="flex flex-col gap-3 rounded-card border border-softgrey bg-white p-6 sm:flex-row sm:items-start sm:gap-6">
-                  <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-semibold text-white">
+                <div className="flex flex-col gap-3 rounded-card border border-line bg-surface p-6 sm:flex-row sm:items-start sm:gap-6">
+                  <span className="inline-flex size-10 shrink-0 items-center justify-center rounded-xs bg-brand-900 text-sm font-semibold text-white">
                     {layer.index}
                   </span>
                   <div>
-                    <h3 className="text-lg font-semibold tracking-[-0.01em] text-navy">
+                    <h3 className="text-lg font-semibold tracking-[-0.01em] text-ink">
                       {layer.name}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-slate">{layer.purpose}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-soft">{layer.purpose}</p>
                   </div>
                   <Icon
                     name="ArrowRight"
-                    className="hidden size-5 shrink-0 self-center text-softgrey sm:block"
+                    className="hidden size-5 shrink-0 self-center text-white/30 sm:block"
                   />
                 </div>
               </Reveal>
@@ -182,7 +182,7 @@ export default function AboutPage() {
           />
           <div className="mt-8 space-y-5">
             {longTermDirection.body.map((paragraph) => (
-              <p key={paragraph} className="text-base leading-relaxed text-slate-700">
+              <p key={paragraph} className="text-base leading-relaxed text-ink-soft">
                 {paragraph}
               </p>
             ))}

@@ -34,9 +34,9 @@ export default function PlatformPage() {
               <li key={layer.id}>
                 <Link
                   href={`#architecture`}
-                  className="flex items-center gap-3 rounded-card border border-white/10 bg-white/[0.05] p-3 text-sm text-white/80 transition-colors hover:border-white/30 hover:text-white"
+                  className="flex items-center gap-3 rounded-card border border-white/10 bg-surface/[0.05] p-3 text-sm text-white/80 transition-colors hover:border-white/30 hover:text-white"
                 >
-                  <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-white/10 text-xs font-semibold text-cyan">
+                  <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-xs bg-surface/10 text-xs font-semibold text-accent">
                     {layer.index}
                   </span>
                   {layer.shortName}
@@ -78,11 +78,11 @@ export default function PlatformPage() {
                     <h3 className="text-lg font-semibold tracking-[-0.01em]">{component.name}</h3>
                     <StatusBadge status={component.status} />
                   </div>
-                  <p className="text-sm leading-relaxed text-slate">{component.summary}</p>
+                  <p className="text-sm leading-relaxed text-muted-soft">{component.summary}</p>
                   <ul className="mt-2 space-y-2">
                     {component.details.map((detail) => (
-                      <li key={detail} className="flex items-start gap-2 text-sm text-slate-700">
-                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                      <li key={detail} className="flex items-start gap-2 text-sm text-ink-soft">
+                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-brand" />
                         {detail}
                       </li>
                     ))}
@@ -90,7 +90,7 @@ export default function PlatformPage() {
                   {component.href ? (
                     <Link
                       href={component.href}
-                      className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-emerald-600 hover:underline"
+                      className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-brand hover:underline"
                     >
                       Read more
                       <Icon name="ArrowRight" className="size-4" />
@@ -130,9 +130,9 @@ export default function PlatformPage() {
               {blockchainPosition.points.map((point) => (
                 <li
                   key={point}
-                  className="flex items-start gap-3 rounded-card border border-softgrey bg-offwhite p-4 text-sm leading-relaxed text-slate-700"
+                  className="flex items-start gap-3 rounded-card border border-line bg-surface-alt p-4 text-sm leading-relaxed text-ink-soft"
                 >
-                  <Icon name="ShieldCheck" className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                  <Icon name="ShieldCheck" className="mt-0.5 size-4 shrink-0 text-brand" />
                   {point}
                 </li>
               ))}
@@ -154,12 +154,12 @@ export default function PlatformPage() {
             {technicalNotes.map((note) => (
               <div
                 key={note.title}
-                className="rounded-card border border-softgrey bg-white p-6"
+                className="rounded-card border border-line bg-surface p-6"
               >
-                <dt className="text-base font-semibold tracking-[-0.01em] text-navy">
+                <dt className="text-base font-semibold tracking-[-0.01em] text-ink">
                   {note.title}
                 </dt>
-                <dd className="mt-2 text-sm leading-relaxed text-slate">{note.body}</dd>
+                <dd className="mt-2 text-sm leading-relaxed text-muted-soft">{note.body}</dd>
               </div>
             ))}
           </dl>

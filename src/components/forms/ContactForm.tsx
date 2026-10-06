@@ -39,7 +39,7 @@ export function ContactForm(props: { formId?: string; deliveryConfigured?: boole
 function FormSkeleton() {
   return (
     <div
-      className="h-[42rem] rounded-panel border border-softgrey bg-white"
+      className="h-[42rem] rounded-panel border border-line bg-surface"
       aria-hidden="true"
     />
   );
@@ -133,15 +133,15 @@ function ContactFormInner({
         ref={statusRef}
         tabIndex={-1}
         role="status"
-        className="rounded-panel border border-emerald/30 bg-emerald-50 p-8"
+        className="rounded-panel border border-brand/30 bg-brand-50 p-8"
       >
-        <span className="inline-flex size-12 items-center justify-center rounded-full bg-emerald text-white">
+        <span className="inline-flex size-12 items-center justify-center rounded-full bg-brand text-white">
           <Icon name="Check" className="size-6" />
         </span>
-        <h3 className="mt-5 text-xl font-semibold tracking-[-0.01em] text-navy">
+        <h3 className="mt-5 text-xl font-semibold tracking-[-0.01em] text-ink">
           Enquiry received
         </h3>
-        <p className="mt-3 text-base leading-relaxed text-slate-700">{message}</p>
+        <p className="mt-3 text-base leading-relaxed text-ink-soft">{message}</p>
       </div>
     );
   }
@@ -152,9 +152,9 @@ function ContactFormInner({
         <Callout tone="caution" title="Development mode" className="mb-6">
           No email delivery service is configured on this deployment. Submissions are validated and
           recorded in the server log, but they are not emailed to anyone. Set{" "}
-          <code className="rounded bg-white px-1 py-0.5 text-xs">RESEND_API_KEY</code>,{" "}
-          <code className="rounded bg-white px-1 py-0.5 text-xs">ENQUIRY_TO_EMAIL</code> and{" "}
-          <code className="rounded bg-white px-1 py-0.5 text-xs">ENQUIRY_FROM_EMAIL</code> to enable
+          <code className="rounded bg-surface px-1 py-0.5 text-xs">RESEND_API_KEY</code>,{" "}
+          <code className="rounded bg-surface px-1 py-0.5 text-xs">ENQUIRY_TO_EMAIL</code> and{" "}
+          <code className="rounded bg-surface px-1 py-0.5 text-xs">ENQUIRY_FROM_EMAIL</code> to enable
           delivery.
         </Callout>
       ) : null}
@@ -177,7 +177,7 @@ function ContactFormInner({
         id={formId}
         onSubmit={onSubmit}
         noValidate
-        className="rounded-panel border border-softgrey bg-white p-6 md:p-8"
+        className="rounded-panel border border-line bg-surface p-6 md:p-8"
       >
         <div className="grid gap-5 sm:grid-cols-2">
           <Field
@@ -251,9 +251,9 @@ function ContactFormInner({
           <div className="sm:col-span-2">
             <label
               htmlFor={fieldId("message")}
-              className="block text-sm font-medium text-navy"
+              className="block text-sm font-medium text-ink"
             >
-              Message <span className="text-slate">*</span>
+              Message <span className="text-muted-soft">*</span>
             </label>
             <textarea
               id={fieldId("message")}
@@ -264,8 +264,8 @@ function ContactFormInner({
               aria-describedby={fieldErrors.message ? errorId("message") : undefined}
               placeholder="Tell us about your organisation, the activity you run, and what data you already collect."
               className={cn(
-                "mt-2 w-full rounded-card border bg-white px-4 py-3 text-sm text-navy placeholder:text-slate/60",
-                fieldErrors.message ? "border-amber" : "border-softgrey",
+                "mt-2 w-full rounded-card border bg-surface px-4 py-3 text-sm text-ink placeholder:text-muted-soft/60",
+                fieldErrors.message ? "border-caution" : "border-line",
               )}
             />
             <FieldError id={errorId("message")} error={fieldErrors.message} />
@@ -293,23 +293,23 @@ function ContactFormInner({
                 required
                 aria-invalid={fieldErrors.consent ? true : undefined}
                 aria-describedby={fieldErrors.consent ? errorId("consent") : undefined}
-                className="mt-1 size-5 shrink-0 rounded border-softgrey accent-emerald"
+                className="mt-1 size-5 shrink-0 rounded border-line accent-emerald"
               />
-              <label htmlFor={fieldId("consent")} className="text-sm leading-relaxed text-slate-700">
+              <label htmlFor={fieldId("consent")} className="text-sm leading-relaxed text-ink-soft">
                 I am happy for {`Edge Solutions Africa`} to use the details above to respond to this
                 enquiry, as described in the{" "}
-                <Link href="/privacy" className="font-medium text-emerald-600 underline">
+                <Link href="/privacy" className="font-medium text-brand underline">
                   privacy notice
                 </Link>
-                . <span className="text-slate">*</span>
+                . <span className="text-muted-soft">*</span>
               </label>
             </div>
             <FieldError id={errorId("consent")} error={fieldErrors.consent} />
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t border-softgrey pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs leading-relaxed text-slate">
+        <div className="mt-8 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs leading-relaxed text-muted-soft">
             Please do not include confidential or personal information beyond what is needed for us
             to respond.
           </p>
@@ -352,12 +352,12 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-medium text-navy">
+      <label htmlFor={id} className="block text-sm font-medium text-ink">
         {label}{" "}
         {required ? (
-          <span className="text-slate">*</span>
+          <span className="text-muted-soft">*</span>
         ) : optional ? (
-          <span className="text-xs font-normal text-slate">(optional)</span>
+          <span className="text-xs font-normal text-muted-soft">(optional)</span>
         ) : null}
       </label>
       <input
@@ -369,8 +369,8 @@ function Field({
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
         className={cn(
-          "mt-2 min-h-11 w-full rounded-card border bg-white px-4 text-sm text-navy placeholder:text-slate/60",
-          error ? "border-amber" : "border-softgrey",
+          "mt-2 min-h-11 w-full rounded-card border bg-surface px-4 text-sm text-ink placeholder:text-muted-soft/60",
+          error ? "border-caution" : "border-line",
         )}
       />
       <FieldError id={errorId} error={error} />
@@ -403,8 +403,8 @@ function SelectField({
 }) {
   return (
     <div className={className}>
-      <label htmlFor={id} className="block text-sm font-medium text-navy">
-        {label} {required ? <span className="text-slate">*</span> : null}
+      <label htmlFor={id} className="block text-sm font-medium text-ink">
+        {label} {required ? <span className="text-muted-soft">*</span> : null}
       </label>
       <select
         id={id}
@@ -415,8 +415,8 @@ function SelectField({
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}
         className={cn(
-          "mt-2 min-h-11 w-full rounded-card border bg-white px-4 text-sm text-navy",
-          error ? "border-amber" : "border-softgrey",
+          "mt-2 min-h-11 w-full rounded-card border bg-surface px-4 text-sm text-ink",
+          error ? "border-caution" : "border-line",
         )}
       >
         <option value="" disabled>
@@ -436,7 +436,7 @@ function SelectField({
 function FieldError({ id, error }: { id: string; error?: string }) {
   if (!error) return null;
   return (
-    <p id={id} className="mt-2 flex items-center gap-1.5 text-sm text-amber">
+    <p id={id} className="mt-2 flex items-center gap-1.5 text-sm text-caution">
       <Icon name="AlertCircle" className="size-4 shrink-0" />
       {error}
     </p>

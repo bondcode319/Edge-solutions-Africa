@@ -36,6 +36,29 @@ npm run dev                  # http://localhost:3000
 | `npm run typecheck` | `tsc --noEmit` |
 | `npm test` | Vitest, single run |
 | `npm run test:watch` | Vitest, watch mode |
+| `npm run images:list` | List the images in the manifest |
+| `npm run images:preview` | Print the exact generation prompts, write nothing |
+| `npm run images:generate` | Generate missing imagery via the Gemini API |
+
+## Imagery
+
+The site is designed to be complete without photography: every visual is a
+designed diagram, and the layout degrades cleanly to that if an image is absent.
+
+A set of **33 abstract images** is specified in `src/content/images.ts` — hero
+fields, social cards, section art, solution and industry visuals, and article
+covers. To generate them:
+
+```bash
+export GEMINI_API_KEY="..."     # PowerShell: $env:GEMINI_API_KEY="..."
+npm run images:generate
+```
+
+Generated files land in `public/images/` and are git-ignored. Prompts are written
+against the editorial rules below — no identifiable operators, no readable
+figures, no currency — and `src/tests/components.test.tsx` enforces those rules at
+the prompt level. **A human must still review every generated image before it
+ships.** See `public/images/README.md`.
 
 ## Project structure
 

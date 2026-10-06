@@ -14,22 +14,25 @@ import { Icon } from "./Icon";
  */
 
 const statusStyles: Record<DevelopmentStatus, { className: string; icon: string }> = {
-  concept: { className: "border-slate/25 bg-white text-slate-700", icon: "CircleDot" },
+  concept: { className: "border-line bg-surface-muted text-muted-soft", icon: "CircleDot" },
   "in-development": {
-    className: "border-cyan-600/30 bg-cyan-50 text-cyan-600",
+    className: "border-brand/30 bg-surface-alt text-brand-700",
     icon: "Layers",
   },
   "pilot-preparation": {
-    className: "border-amber/30 bg-amber-50 text-amber",
+    className: "border-caution/30 bg-caution-soft text-caution",
     icon: "ClipboardCheck",
   },
-  pilot: { className: "border-amber/30 bg-amber-50 text-amber", icon: "FlaskConical" },
+  pilot: {
+    className: "border-caution/30 bg-caution-soft text-caution",
+    icon: "FlaskConical",
+  },
   available: {
-    className: "border-emerald/30 bg-emerald-50 text-emerald-600",
+    className: "border-positive/30 bg-positive/10 text-positive",
     icon: "CheckCircle2",
   },
   "to-be-confirmed": {
-    className: "border-slate/25 bg-white text-slate-700",
+    className: "border-line bg-surface-muted text-muted-soft",
     icon: "Info",
   },
 };
@@ -48,7 +51,7 @@ export function StatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex w-fit items-center gap-1.5 rounded-pill border px-2.5 py-1 text-xs font-medium",
+        "inline-flex w-fit items-center gap-1.5 rounded-xs border px-2.5 py-1 text-xs font-medium",
         style.className,
         className,
       )}
@@ -70,11 +73,14 @@ export function StatusBadge({
 
 const focusStyles: Record<FocusLevel, { className: string; icon: string }> = {
   current: {
-    className: "border-emerald/30 bg-emerald-50 text-emerald-600",
+    className: "border-positive/30 bg-positive/10 text-positive",
     icon: "CheckCircle2",
   },
-  planned: { className: "border-cyan-600/30 bg-cyan-50 text-cyan-600", icon: "Layers" },
-  exploratory: { className: "border-slate/25 bg-white text-slate-700", icon: "Compass" },
+  planned: { className: "border-brand/30 bg-surface-alt text-brand-700", icon: "Layers" },
+  exploratory: {
+    className: "border-line bg-surface-muted text-muted-soft",
+    icon: "Compass",
+  },
 };
 
 export function FocusBadge({ focus, className }: { focus: FocusLevel; className?: string }) {
@@ -83,7 +89,7 @@ export function FocusBadge({ focus, className }: { focus: FocusLevel; className?
   return (
     <span
       className={cn(
-        "inline-flex w-fit items-center gap-1.5 rounded-pill border px-2.5 py-1 text-xs font-medium",
+        "inline-flex w-fit items-center gap-1.5 rounded-xs border px-2.5 py-1 text-xs font-medium",
         style.className,
         className,
       )}

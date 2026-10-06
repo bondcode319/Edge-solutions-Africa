@@ -27,10 +27,10 @@ export function Container({
 export type SectionTone = "light" | "white" | "dark" | "forest";
 
 const toneStyles: Record<SectionTone, string> = {
-  light: "bg-offwhite text-navy",
-  white: "bg-white text-navy",
-  dark: "on-dark bg-navy text-white",
-  forest: "on-dark bg-forest text-white",
+  light: "bg-surface-alt text-ink",
+  white: "bg-surface text-ink",
+  dark: "on-dark bg-brand-900 text-white",
+  forest: "on-dark bg-brand-800 text-white",
 };
 
 /** Vertical rhythm and surface tone for a page section. */
@@ -52,9 +52,9 @@ export function Section({
   ariaLabelledBy?: string;
 }) {
   const spacingStyles = {
-    tight: "py-14 md:py-16",
-    default: "py-16 md:py-24",
-    loose: "py-20 md:py-32",
+    tight: "py-14 md:py-20",
+    default: "py-20 md:py-28",
+    loose: "py-24 md:py-36",
   }[spacing];
 
   return (
@@ -79,13 +79,7 @@ export function Eyebrow({
   tone?: "light" | "dark";
 }) {
   return (
-    <p
-      className={cn(
-        "text-xs font-semibold uppercase tracking-[0.16em]",
-        tone === "dark" ? "text-cyan" : "text-emerald-600",
-        className,
-      )}
-    >
+    <p className={cn("eyebrow", tone === "dark" ? "text-accent" : "text-brand", className)}>
       {children}
     </p>
   );
@@ -126,15 +120,20 @@ export function SectionHeading({
         className,
       )}
     >
-      {eyebrow ? <Eyebrow tone={tone}>{eyebrow}</Eyebrow> : null}
+      {eyebrow ? (
+        <div className="flex flex-col gap-4">
+          <span className="rule-brand" aria-hidden="true" />
+          <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
+        </div>
+      ) : null}
       <Heading
         id={id}
         className={cn(
-          "text-balance-heading font-semibold tracking-[-0.02em]",
+          "font-display font-light text-balance-heading",
           level === 1
-            ? "text-4xl leading-[1.08] sm:text-5xl lg:text-[3.5rem]"
-            : "text-3xl leading-[1.12] sm:text-4xl lg:text-[2.75rem]",
-          tone === "dark" ? "text-white" : "text-navy",
+            ? "text-4xl leading-[1.06] sm:text-5xl lg:text-[3.5rem]"
+            : "text-3xl leading-[1.1] sm:text-4xl lg:text-[2.75rem]",
+          tone === "dark" ? "text-white" : "text-ink",
         )}
       >
         {title}
@@ -142,9 +141,9 @@ export function SectionHeading({
       {intro ? (
         <div
           className={cn(
-            "max-w-[46rem] text-lg leading-relaxed",
+            "max-w-[46rem] text-lg leading-relaxed md:text-xl",
             align === "center" && "mx-auto",
-            tone === "dark" ? "text-white/75" : "text-slate",
+            tone === "dark" ? "text-white/75" : "text-muted-soft",
           )}
         >
           {intro}

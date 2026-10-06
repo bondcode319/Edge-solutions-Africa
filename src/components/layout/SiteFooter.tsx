@@ -20,15 +20,13 @@ export function SiteFooter() {
   const configuredSocial = socialLinks.filter((link) => Boolean(link.href));
 
   return (
-    <footer className="on-dark bg-navy text-white">
-      <div className="container-content py-14 md:py-20">
+    <footer className="on-dark bg-brand-900 text-white">
+      <div className="container-content py-16 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[1.2fr_2fr]">
           <div className="max-w-sm">
             <Logo tone="dark" />
             <p className="mt-4 text-sm leading-relaxed text-white/70">{siteConfig.description}</p>
-            <p className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-cyan">
-              {siteConfig.brandPhrase}
-            </p>
+            <p className="eyebrow mt-6 text-accent">{siteConfig.brandPhrase}</p>
 
             <div className="mt-8 space-y-3">
               {contactDetails.map((detail) => (
@@ -57,7 +55,7 @@ export function SiteFooter() {
                   <a
                     key={link.label}
                     href={link.href as string}
-                    className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-white/15 px-3 text-sm text-white/80 hover:border-white/40 hover:text-white"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-xs border border-white/25 px-3 text-sm text-white/80 hover:border-white hover:bg-surface hover:text-brand-900"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -77,9 +75,7 @@ export function SiteFooter() {
           <nav aria-label="Footer" className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {footerNavigation.map((group) => (
               <div key={group.heading}>
-                <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
-                  {group.heading}
-                </h2>
+                <h2 className="eyebrow text-white/50">{group.heading}</h2>
                 <ul className="mt-4 space-y-2.5">
                   {group.links.map((link) => (
                     <li key={link.href}>
@@ -97,7 +93,7 @@ export function SiteFooter() {
           </nav>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/15 pt-6 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-white/50">
             © {year} {siteConfig.name}. All rights reserved.
           </p>

@@ -12,25 +12,25 @@ export type ButtonVariant = "primary" | "secondary" | "ghost" | "onDark" | "onDa
 export type ButtonSize = "sm" | "md" | "lg";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-pill font-medium " +
+  "inline-flex items-center justify-center gap-2 rounded-xs font-medium tracking-[0.01em] " +
   "transition-[background-color,border-color,color,box-shadow,transform] duration-[--duration-base] " +
-  "ease-[--ease-out-soft] active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
+  "ease-[--ease-standard] active:translate-y-px disabled:pointer-events-none disabled:opacity-60";
 
 const variants: Record<ButtonVariant, string> = {
-  primary:
-    "bg-emerald text-white shadow-[0_8px_20px_-10px_rgba(21,150,107,0.8)] hover:bg-emerald-600",
+  // Flat, saturated blocks. No gradient or glow — the colour does the work.
+  primary: "bg-brand text-white hover:bg-brand-600",
   secondary:
-    "border border-navy/15 bg-white text-navy hover:border-navy/30 hover:bg-softgrey/60",
-  ghost: "text-navy hover:bg-navy/5",
-  onDark: "bg-white text-navy hover:bg-offwhite",
+    "border border-line bg-transparent text-ink hover:border-ink hover:bg-ink hover:text-white",
+  ghost: "text-ink hover:bg-surface-muted",
+  onDark: "bg-surface text-brand-900 hover:bg-accent hover:text-brand-900",
   onDarkGhost:
-    "border border-white/25 text-white hover:border-white/50 hover:bg-white/10",
+    "border border-white/35 text-white hover:border-white hover:bg-surface hover:text-brand-900",
 };
 
 const sizes: Record<ButtonSize, string> = {
   sm: "min-h-9 px-4 text-sm",
   md: "min-h-11 px-5 text-[0.95rem]",
-  lg: "min-h-12 px-6 text-base",
+  lg: "min-h-13 px-7 text-base",
 };
 
 type SharedProps = {

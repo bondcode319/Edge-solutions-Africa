@@ -31,11 +31,11 @@ export function Logo({
   ) : (
     <span
       className={cn(
-        "text-[1.05rem] font-semibold tracking-[-0.02em] sm:text-[1.15rem]",
-        tone === "dark" ? "text-white" : "text-navy",
+        "font-display text-[1.15rem] font-medium tracking-[-0.01em] sm:text-[1.3rem]",
+        tone === "dark" ? "text-white" : "text-ink",
       )}
     >
-      <span className={tone === "dark" ? "text-cyan" : "text-emerald"}>Edge</span> Solutions
+      <span className={tone === "dark" ? "text-accent" : "text-brand"}>Edge</span> Solutions
       Africa
     </span>
   );

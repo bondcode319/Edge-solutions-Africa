@@ -8,6 +8,8 @@ import { FocusBadge } from "@/components/ui/StatusBadge";
 import { Callout } from "@/components/ui/Callout";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { Figure } from "@/components/ui/Figure";
+import { resolveArt } from "@/lib/art.server";
 import { getIndustry, industriesWithPages } from "@/content/industries";
 import { getSolution } from "@/content/solutions";
 import { buildMetadata } from "@/lib/seo";
@@ -67,7 +69,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           { name: industry.name, href: `/industries/${industry.slug}` },
         ]}
         aside={
-          <div className="rounded-panel border border-white/10 bg-white/[0.05] p-6">
+          <div className="rounded-panel border border-white/10 bg-surface/[0.05] p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
               Where this category stands
             </p>
@@ -89,22 +91,29 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             title="Activity, data, verification and platform fit."
           />
 
+          {/* Renders nothing until the image is generated. */}
+          <Figure
+            image={await resolveArt(`industry-${industry.slug}`)}
+            className="mt-10 aspect-16/9 w-full"
+            sizes="(min-width: 1376px) 1312px, 100vw"
+          />
+
           <div className="mt-12 grid gap-5 md:grid-cols-2">
             {blocks.map((block, index) => (
               <Reveal key={block.key} delay={index * 50}>
-                <div className="h-full rounded-card border border-softgrey bg-white p-6">
+                <div className="h-full rounded-card border border-line bg-surface p-6">
                   <div className="flex items-center gap-3">
-                    <span className="inline-flex size-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <span className="inline-flex size-10 items-center justify-center rounded-xs bg-surface-alt text-brand">
                       <Icon name={block.icon} className="size-5" />
                     </span>
-                    <h3 className="text-base font-semibold tracking-[-0.01em] text-navy">
+                    <h3 className="text-base font-semibold tracking-[-0.01em] text-ink">
                       {block.heading}
                     </h3>
                   </div>
                   <ul className="mt-4 space-y-2.5">
                     {industry[block.key].map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm text-slate-700">
-                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-emerald-600" />
+                      <li key={item} className="flex items-start gap-2 text-sm text-ink-soft">
+                        <Icon name="Check" className="mt-0.5 size-4 shrink-0 text-brand" />
                         {item}
                       </li>
                     ))}
@@ -127,7 +136,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           <Container>
             <h2
               id="industry-solutions-heading"
-              className="text-xl font-semibold tracking-[-0.01em] text-navy"
+              className="text-xl font-semibold tracking-[-0.01em] text-ink"
             >
               Relevant solutions
             </h2>
@@ -136,11 +145,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <li key={solution.slug}>
                   <Link
                     href={`/solutions/${solution.slug}`}
-                    className="group flex h-full flex-col gap-2 rounded-card border border-softgrey bg-offwhite p-5 transition-colors hover:border-emerald/30"
+                    className="group flex h-full flex-col gap-2 rounded-card border border-line bg-surface-alt p-5 transition-colors hover:border-brand/30"
                   >
-                    <span className="text-base font-semibold text-navy">{solution.name}</span>
-                    <span className="text-sm text-slate">{solution.summary}</span>
-                    <span className="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-medium text-emerald-600">
+                    <span className="text-base font-semibold text-ink">{solution.name}</span>
+                    <span className="text-sm text-muted-soft">{solution.summary}</span>
+                    <span className="mt-auto inline-flex items-center gap-1.5 pt-3 text-sm font-medium text-brand">
                       Read more
                       <Icon
                         name="ArrowRight"

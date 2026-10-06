@@ -1,10 +1,11 @@
 import { ButtonLink } from "@/components/ui/Button";
 import { Card, CardIcon } from "@/components/ui/Card";
 import { Container, Section, SectionHeading } from "@/components/ui/Section";
+import { SectionArt } from "@/components/ui/SectionArt";
 import { Reveal } from "@/components/ui/Reveal";
 import { valueGap } from "@/content/home";
 
-export function ValueGapSection() {
+export async function ValueGapSection() {
   return (
     <Section tone="light" id="value-gap" ariaLabelledBy="value-gap-heading">
       <Container>
@@ -21,14 +22,14 @@ export function ValueGapSection() {
               <Card className="h-full">
                 <CardIcon name={problem.icon} />
                 <h3 className="text-lg font-semibold tracking-[-0.01em]">{problem.title}</h3>
-                <p className="text-sm leading-relaxed text-slate">{problem.body}</p>
+                <p className="text-sm leading-relaxed text-muted-soft">{problem.body}</p>
               </Card>
             </Reveal>
           ))}
         </ul>
 
-        <div className="mt-10 flex flex-col items-start gap-5 rounded-panel border border-softgrey bg-white p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
-          <p className="max-w-2xl text-base leading-relaxed text-slate-700">
+        <div className="mt-12 flex flex-col items-start gap-5 rounded-panel border border-line bg-surface p-6 sm:flex-row sm:items-center sm:justify-between md:p-8">
+          <p className="max-w-2xl text-base leading-relaxed text-ink-soft">
             None of this is solved by one company, and we do not claim to have solved it. What we
             are building is the missing infrastructure layer — so that measuring, evidencing and
             financing environmental activity stops being a project each participant runs alone.
@@ -37,6 +38,9 @@ export function ValueGapSection() {
             {valueGap.cta.label}
           </ButtonLink>
         </div>
+
+        {/* Renders nothing until the image is generated. */}
+        <SectionArt id="home-value-gap" className="mt-10 w-full" ratio="21 / 9" sizes="100vw" />
       </Container>
     </Section>
   );

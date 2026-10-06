@@ -9,6 +9,9 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { Callout } from "@/components/ui/Callout";
 import { Icon } from "@/components/ui/Icon";
 import { Reveal } from "@/components/ui/Reveal";
+import { Figure } from "@/components/ui/Figure";
+import { getImage } from "@/content/images";
+import { resolveArt } from "@/lib/art.server";
 import { getSolution, solutions } from "@/content/solutions";
 import { buildMetadata } from "@/lib/seo";
 
@@ -29,6 +32,7 @@ export async function generateMetadata({
     title: solution.name,
     description: solution.metaDescription,
     path: `/solutions/${solution.slug}`,
+    image: getImage("og-solution"),
   });
 }
 
@@ -52,7 +56,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
           { name: solution.name, href: `/solutions/${solution.slug}` },
         ]}
         aside={
-          <div className="rounded-panel border border-white/10 bg-white/[0.05] p-6">
+          <div className="rounded-panel border border-white/10 bg-surface/[0.05] p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
               Development status
             </p>
@@ -74,13 +78,21 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             eyebrow="Capabilities"
             title="What this covers."
           />
+
+          {/* Renders nothing until the image is generated. */}
+          <Figure
+            image={await resolveArt(`solution-${solution.slug}`)}
+            className="mt-10 aspect-16/9 w-full"
+            sizes="(min-width: 1376px) 1312px, 100vw"
+          />
+
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {solution.capabilities.map((capability, index) => (
               <Reveal key={capability.title} as="li" delay={index * 50} className="h-full">
                 <Card className="h-full">
                   <CardIcon name={solution.icon} />
                   <h3 className="text-base font-semibold tracking-[-0.01em]">{capability.title}</h3>
-                  <p className="text-sm leading-relaxed text-slate">{capability.body}</p>
+                  <p className="text-sm leading-relaxed text-muted-soft">{capability.body}</p>
                 </Card>
               </Reveal>
             ))}
@@ -99,13 +111,13 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
             <ol className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {solution.workflow.map((stage, index) => (
                 <Reveal key={stage.step} as="li" delay={index * 50}>
-                  <div className="flex h-full gap-4 rounded-card border border-softgrey bg-offwhite p-5">
-                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white text-sm font-semibold text-emerald-600 shadow-[var(--shadow-card)]">
+                  <div className="flex h-full gap-4 rounded-card border border-line bg-surface-alt p-5">
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xs bg-surface text-sm font-semibold text-brand shadow-[var(--shadow-card)]">
                       {index + 1}
                     </span>
                     <div>
-                      <h3 className="text-sm font-semibold text-navy">{stage.step}</h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-slate">{stage.body}</p>
+                      <h3 className="text-sm font-semibold text-ink">{stage.step}</h3>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted-soft">{stage.body}</p>
                     </div>
                   </div>
                 </Reveal>
@@ -138,7 +150,7 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
       {related.length > 0 ? (
         <Section tone="white" spacing="tight" ariaLabelledBy="related-heading">
           <Container>
-            <h2 id="related-heading" className="text-xl font-semibold tracking-[-0.01em] text-navy">
+            <h2 id="related-heading" className="text-xl font-semibold tracking-[-0.01em] text-ink">
               Related solutions
             </h2>
             <ul className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -146,15 +158,15 @@ export default async function SolutionPage({ params }: { params: Promise<{ slug:
                 <li key={item.slug}>
                   <Link
                     href={`/solutions/${item.slug}`}
-                    className="group flex items-center justify-between gap-4 rounded-card border border-softgrey bg-offwhite p-5 transition-colors hover:border-emerald/30"
+                    className="group flex items-center justify-between gap-4 rounded-card border border-line bg-surface-alt p-5 transition-colors hover:border-brand/30"
                   >
                     <span>
-                      <span className="block text-base font-semibold text-navy">{item.name}</span>
-                      <span className="mt-1 block text-sm text-slate">{item.summary}</span>
+                      <span className="block text-base font-semibold text-ink">{item.name}</span>
+                      <span className="mt-1 block text-sm text-muted-soft">{item.summary}</span>
                     </span>
                     <Icon
                       name="ArrowRight"
-                      className="size-5 shrink-0 text-emerald-600 transition-transform duration-[--duration-base] group-hover:translate-x-1"
+                      className="size-5 shrink-0 text-brand transition-transform duration-[--duration-base] group-hover:translate-x-1"
                     />
                   </Link>
                 </li>

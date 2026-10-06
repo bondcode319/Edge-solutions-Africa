@@ -19,7 +19,7 @@ export const metadata: Metadata = buildMetadata({
   absoluteTitle: true,
 });
 
-export default function HomePage() {
+export default async function HomePage() {
   return (
     <>
       <HeroSection />

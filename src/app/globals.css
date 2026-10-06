@@ -4,57 +4,123 @@
    Edge Solutions Africa — design tokens
    Single source of truth for colour, type, spacing, radii, shadows, motion.
    Change values here rather than hardcoding them in components.
+
+   Visual direction: a Nokia-informed system. Large, light display typography;
+   a single decisive blue with a cyan accent; crisp 4/8px geometry instead of
+   soft pills; wide 1376px canvas; short, confident .3s ease-in-out motion.
    ========================================================================== */
 
 @theme {
-  /* Brand palette */
-  --color-navy: #0b1220;
-  --color-navy-800: #111b2e;
-  --color-navy-700: #1a2740;
-  --color-forest: #123b32;
-  --color-forest-600: #184f43;
-  --color-emerald: #15966b;
-  --color-emerald-600: #11805a;
-  --color-emerald-400: #34b487;
-  --color-emerald-50: #e8f5ef;
-  --color-cyan: #4cc9e8;
-  --color-cyan-600: #2ba9c9;
-  --color-cyan-50: #e6f7fc;
-  --color-offwhite: #f7f8f4;
-  --color-slate: #536171;
-  --color-slate-700: #3d4957;
-  --color-softgrey: #e5eae7;
-  --color-amber: #b4761a;
-  --color-amber-50: #fbf3e6;
+  /* --- Palette (primary scale) ------------------------------------------- */
+  --color-brand: #005aff;
+  --color-brand-600: #004bd6;
+  --color-brand-700: #124191;
+  --color-brand-800: #052253;
+  --color-brand-900: #001135;
+  --color-accent: #00c9ff;
+  --color-accent-soft: #99c2f8;
 
-  /* Typography */
+  /* --- Neutrals ----------------------------------------------------------- */
+  --color-ink: #0a0b0d;
+  --color-ink-soft: #1d1e20;
+  --color-line: #d4d4d4;
+  --color-line-soft: #bec8d2;
+  --color-muted: #6e6e6e;
+  --color-muted-soft: #4d5766;
+  --color-surface: #ffffff;
+  --color-surface-alt: #edf2f5;
+  --color-surface-muted: #f4f4f4;
+
+  /* --- Status (functional, deliberately restrained) ----------------------- */
+  --color-positive: #00875a;
+  --color-caution: #b26a00;
+  --color-caution-soft: #fdf4e6;
+
+  /* --- Legacy aliases -----------------------------------------------------
+     Retained so existing utility classes keep working while they are migrated
+     to the semantic tokens above. Values mirror the new palette. */
+  --color-navy: var(--color-brand-900);
+  --color-navy-800: var(--color-brand-800);
+  --color-navy-700: var(--color-brand-700);
+  --color-forest: var(--color-brand-800);
+  --color-forest-600: var(--color-brand-700);
+  --color-emerald: var(--color-brand);
+  --color-emerald-600: var(--color-brand-600);
+  --color-emerald-400: var(--color-accent-soft);
+  --color-emerald-50: var(--color-surface-alt);
+  --color-cyan: var(--color-accent);
+  --color-cyan-600: var(--color-brand-600);
+  --color-cyan-50: var(--color-surface-alt);
+  --color-offwhite: var(--color-surface-alt);
+  --color-slate: var(--color-muted-soft);
+  --color-slate-700: var(--color-ink-soft);
+  --color-softgrey: var(--color-line);
+  --color-amber: var(--color-caution);
+  --color-amber-50: var(--color-caution-soft);
+
+  /* Typography ------------------------------------------------------------ */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Geometric display face used for headlines and section titles. */
+  --font-display: var(--font-outfit), var(--font-inter), ui-sans-serif,
+    system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
+  /* Display: light, wide and airy rather than heavy. */
   --text-display: 3.75rem;
-  --text-display--line-height: 1.04;
-  --text-display--letter-spacing: -0.03em;
-  --text-display--font-weight: 600;
+  --text-display--line-height: 1.03;
+  --text-display--letter-spacing: -0.035em;
+  --text-display--font-weight: 300;
 
-  /* Radii */
-  --radius-card: 1rem;
-  --radius-panel: 1.5rem;
+  --text-h1: 3.25rem;
+  --text-h1--line-height: 1.06;
+  --text-h1--letter-spacing: -0.03em;
+  --text-h1--font-weight: 300;
+
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.028em;
+  --text-h2--font-weight: 300;
+
+  --text-h3: 1.75rem;
+  --text-h3--line-height: 1.2;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 400;
+
+  /* Body copy sits at 18px — generous and highly readable at length. */
+  --text-lead: 1.25rem;
+  --text-lead--line-height: 1.6;
+  --text-body: 1.125rem;
+  --text-body--line-height: 1.65;
+
+  --text-eyebrow: 0.75rem;
+  --text-eyebrow--line-height: 1.2;
+  --text-eyebrow--letter-spacing: 0.14em;
+  --text-eyebrow--font-weight: 500;
+
+  /* Radii — crisp and squared, the core of the Nokia-derived look. */
+  --radius-xs: 4px;
+  --radius-card: 8px;
+  --radius-panel: 12px;
   --radius-pill: 999px;
 
-  /* Elevation — soft, low-contrast, premium */
-  --shadow-card: 0 1px 2px rgb(11 18 32 / 0.04), 0 8px 24px -12px rgb(11 18 32 / 0.12);
-  --shadow-card-hover: 0 2px 4px rgb(11 18 32 / 0.05), 0 20px 40px -16px rgb(11 18 32 / 0.18);
-  --shadow-panel: 0 30px 80px -40px rgb(11 18 32 / 0.45);
+  /* Elevation — restrained; borders do most of the structural work. */
+  --shadow-card: 0 1px 2px rgb(10 11 13 / 0.04),
+    0 6px 20px -12px rgb(10 11 13 / 0.14);
+  --shadow-card-hover: 0 2px 6px rgb(10 11 13 / 0.06),
+    0 18px 36px -18px rgb(10 11 13 / 0.24);
+  --shadow-panel: 0 24px 60px -30px rgb(10 11 13 / 0.35);
+  --shadow-nav: 0 1px 0 rgb(10 11 13 / 0.08);
 
   /* Layout */
-  --container-content: 72rem;
+  --container-content: 86rem;
   --container-prose: 44rem;
 
   /* Motion */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-fast: 150ms;
-  --duration-base: 260ms;
-  --duration-slow: 600ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
 }
 
 @layer base {
@@ -64,27 +130,40 @@
   }
 
   body {
-    background-color: var(--color-offwhite);
-    color: var(--color-navy);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
     font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.65;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
   }
 
+  /* Display type uses the geometric face and a light weight by default. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
   /* Visible, consistent focus for every interactive element. */
   :focus-visible {
-    outline: 2px solid var(--color-emerald);
+    outline: 2px solid var(--color-brand);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
   /* Dark surfaces get a light focus ring so it stays visible. */
   .on-dark :focus-visible {
-    outline-color: var(--color-cyan);
+    outline-color: var(--color-accent);
   }
 
   ::selection {
-    background-color: var(--color-emerald);
+    background-color: var(--color-brand);
     color: #fff;
   }
 
@@ -108,15 +187,32 @@
     }
   }
 
+  @media (min-width: 1280px) {
+    .container-content {
+      padding-inline: 3rem;
+    }
+  }
+
   .text-balance-heading {
     text-wrap: balance;
   }
 
+  /* Uppercase micro-label. Nokia sets these small, widely tracked and light. */
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--text-eyebrow);
+    font-weight: 500;
+    line-height: var(--text-eyebrow--line-height);
+    letter-spacing: var(--text-eyebrow--letter-spacing);
+    text-transform: uppercase;
+  }
+
   /* Scroll reveal — additive only. Content is fully readable without it,
-     and the observer never runs when the user prefers reduced motion. */
+     and the observer never runs when the user prefers reduced motion.
+     Travel distance and easing follow the reference `fade-in-up`. */
   .reveal {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(28px);
     transition: opacity var(--duration-slow) var(--ease-out-soft),
       transform var(--duration-slow) var(--ease-out-soft);
   }
@@ -125,6 +221,41 @@
     opacity: 1;
     transform: none;
   }
+
+  /* Thin brand rule used above section titles. */
+  .rule-brand {
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background-color: var(--color-brand);
+  }
+
+  /* Hairline grid overlay used on dark hero surfaces. */
+  .grid-lines {
+    background-image: linear-gradient(
+        to right,
+        rgb(255 255 255 / 0.05) 1px,
+        transparent 1px
+      ),
+      linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+/* Entrance keyframes for above-the-fold content. */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 32px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up var(--duration-slow) var(--ease-out-soft) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -20,8 +20,10 @@ Nothing in this list was invented. Where a detail was missing, the site either o
 
 | Item | Why |
 | --- | --- |
-| **Photography / imagery** — environmental activity, e-mobility, operations | The site ships with designed diagrams and no photography. Stock imagery of an unrelated fleet was deliberately avoided because it implies an operator relationship that does not exist. Licensed or owned imagery would materially lift the hero and industry pages |
-| **Open Graph share image** (1200×630) | Social metadata currently has no image |
+| **Photography / imagery** — environmental activity, e-mobility, operations | The site ships with designed diagrams and no photography. Stock imagery of an unrelated fleet was deliberately avoided because it implies an operator relationship that does not exist. Licensed or owned imagery would materially lift the hero and industry pages. An AI-generated abstract set is prepared and awaiting generation — see `public/images/README.md` |
+| **Human review of generated imagery** | The manifest in `src/content/images.ts` is prompt-complete and tested, but no image has been generated yet. Every output must be checked against the "Deliberately omitted" list below before it ships. AI imagery is the easiest way to accidentally assert an unconfirmed customer, deployment or figure |
+| **Open Graph share image** (1200×630) | Social metadata currently has no image. Three cards are specified in the manifest; `buildMetadata` wires them once generated |
+| **Official logo as vector SVG** | `icon-concept.png` is art direction only. A logo must be hand-drawn vector; AI output cannot be the final mark. Set `siteConfig.logoSrc` |
 | **Confirmed development status per capability** | Statuses were set conservatively (`in development` for MRV/data, `concept` for rewards/funding/payments). Confirm or correct in `src/content/platform.ts`, `solutions.ts` |
 | **LinkedIn URL** | Footer link is hidden until supplied |
 | **Article publication approval, dates and authorship** | All 7 articles are drafts, undated, bylined to the company. No individual author is claimed |

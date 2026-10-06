@@ -46,28 +46,28 @@ export default function ContactPage() {
                 {contactDetails.map((detail) => (
                   <div
                     key={detail.label}
-                    className="flex items-start gap-3 rounded-card border border-softgrey bg-white p-4"
+                    className="flex items-start gap-3 rounded-card border border-line bg-surface p-4"
                   >
-                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xs bg-brand-50 text-brand">
                       <Icon name={contactIcons[detail.label] ?? "Mail"} className="size-4" />
                     </span>
                     <div>
-                      <p className="text-xs uppercase tracking-[0.12em] text-slate">
+                      <p className="text-xs uppercase tracking-[0.12em] text-muted-soft">
                         {detail.label}
                       </p>
                       {detail.value ? (
                         detail.href ? (
                           <a
                             href={detail.href}
-                            className="text-sm font-medium text-navy hover:underline"
+                            className="text-sm font-medium text-ink hover:underline"
                           >
                             {detail.value}
                           </a>
                         ) : (
-                          <p className="text-sm font-medium text-navy">{detail.value}</p>
+                          <p className="text-sm font-medium text-ink">{detail.value}</p>
                         )
                       ) : (
-                        <p className="text-sm text-slate">To be confirmed</p>
+                        <p className="text-sm text-muted-soft">To be confirmed</p>
                       )}
                     </div>
                   </div>
@@ -80,14 +80,14 @@ export default function ContactPage() {
               </Callout>
 
               <div className="mt-8">
-                <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-slate">
+                <h2 className="text-sm font-semibold uppercase tracking-[0.12em] text-muted-soft">
                   What you can ask about
                 </h2>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {areasOfInterest.map((area) => (
                     <li
                       key={area}
-                      className="rounded-pill border border-softgrey bg-white px-3 py-1.5 text-xs text-slate-700"
+                      className="rounded-xs border border-line bg-surface px-3 py-1.5 text-xs text-ink-soft"
                     >
                       {area}
                     </li>

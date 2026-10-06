@@ -9,7 +9,10 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "images:list": "node scripts/generate-images.mjs --list",
+    "images:preview": "node scripts/generate-images.mjs --dry-run",
+    "images:generate": "node scripts/generate-images.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

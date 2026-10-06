@@ -21,10 +21,13 @@ export function Callout({
   icon?: string;
 }) {
   const tones = {
-    note: { wrapper: "border-softgrey bg-white text-slate-700", icon: "Info" },
-    caution: { wrapper: "border-amber/30 bg-amber-50 text-slate-700", icon: "AlertCircle" },
+    note: { wrapper: "border-line bg-surface text-muted-soft", icon: "Info" },
+    caution: {
+      wrapper: "border-caution/30 bg-caution-soft text-muted-soft",
+      icon: "AlertCircle",
+    },
     illustrative: {
-      wrapper: "border-cyan-600/25 bg-cyan-50 text-slate-700",
+      wrapper: "border-brand/25 bg-surface-alt text-muted-soft",
       icon: "FlaskConical",
     },
   }[tone];
@@ -32,14 +35,19 @@ export function Callout({
   return (
     <div
       className={cn(
-        "flex gap-3 rounded-card border p-4 text-sm leading-relaxed",
+        "flex gap-3 rounded-card border-l-2 border p-4 text-sm leading-relaxed",
+        tone === "note"
+          ? "border-l-line"
+          : tone === "caution"
+            ? "border-l-caution"
+            : "border-l-brand",
         tones.wrapper,
         className,
       )}
     >
       <Icon name={icon ?? tones.icon} className="mt-0.5 size-4 shrink-0" />
       <div className="space-y-1">
-        {title ? <p className="font-semibold text-navy">{title}</p> : null}
+        {title ? <p className="font-medium text-ink">{title}</p> : null}
         <div>{children}</div>
       </div>
     </div>
@@ -51,7 +59,7 @@ export function IllustrativeTag({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1 rounded-pill border border-cyan-600/30 bg-cyan-50 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-[0.08em] text-cyan-600",
+        "inline-flex items-center gap-1 rounded-xs border border-brand/30 bg-surface-alt px-2 py-0.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] text-brand",
         className,
       )}
     >

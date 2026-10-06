@@ -20,10 +20,10 @@ export function CtaSection({
   return (
     <Section tone="dark" spacing="tight" ariaLabelledBy="cta-heading">
       <Container>
-        <div className="relative overflow-hidden rounded-panel border border-white/10 bg-gradient-to-br from-forest to-navy-800 p-8 md:p-12">
+        <div className="relative overflow-hidden rounded-panel border border-white/10 bg-gradient-to-br from-brand-800 to-brand-900 p-8 md:p-12">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-emerald/20 blur-3xl"
+            className="pointer-events-none absolute -right-20 -top-20 size-64 rounded-full bg-brand/20 blur-3xl"
           />
           <div className="relative max-w-2xl">
             <h2
